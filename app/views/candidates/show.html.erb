@@ -1,0 +1,60 @@
+<div class="col profile-col1">
+  <div class="placeimg">
+    <%= image_tag(current_user.avatar.url(:thumb), :class => "avatar" ) %>
+  </div>
+  <div style="clear:both;"></div>
+  <div class="title">About me:</div>
+  <div class="content-container">
+    <div id="edit-candidate-wrapper">
+      <%= link_to "Edit", edit_candidate_path(@candidate), id: 'edit-candidate-link', remote: true if can? :edit, @candidate %><br />
+      <div id="candidate-attributes">
+        <%= render 'candidates/vitals' %>
+      </div>
+      <div id="edit-candidate-form"></div>
+    </div>
+  </div>
+    
+  <div class="content-container">
+    Test text
+  </div>  
+</div>
+
+<div class="col profile-col2">
+  <div class="title">
+    Experience:
+  </div>
+
+  <% if @user == current_user %>
+    <div id="new-experience-wrapper" align="center">
+      <div class="btn"><%= link_to "+ Experience", new_experience_path, remote: true, id: 'new-experience-link' %></div>
+      <div id="new-experience" class="content-container">
+        <div id="experience-errors"></div>
+        <div id="new-experience-form"></div>
+      </div>
+    </div>
+  <% end %>
+
+  <div id="experience-list">
+    <%= render @experiences %>
+  </div>
+</div>
+
+<div class="col profile-col3">
+  <div class="title">
+    Education:
+  </div>
+  
+  <% if @user == current_user %>
+    <div id="new-education-wrapper" align="center">
+      <div class="btn"><%= link_to "+ Education", new_education_path, remote: true, id: 'new-education-link' %></div>
+      <div id="new-education" class="content-container">
+        <div id="education-errors"></div>
+        <div id="new-education-form"></div>
+      </div>
+    </div>
+  <% end %>
+
+  <div id="education-list">
+    <%= render @educations %>
+  </div>
+</div>

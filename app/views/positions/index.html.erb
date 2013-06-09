@@ -1,0 +1,48 @@
+<div class="col search-col1">
+  <div class="section group">         
+    <div class="content-container">
+      <div class="title">
+        All Jobs:
+      </div>
+      <%= search_form_for @search do |f| %>
+        <div class="col searchoptions-col2">
+          <%= f.label :title_cont, "Title contains: " %>
+          <%= f.text_field :title_cont, :class => "searchFieldBox" %><br/>
+          <%= f.label :description_cont, "Description contains: " %>
+          <%= f.text_field :description_cont, :class => "searchFieldBox" %>
+        </div>      
+        <div align="center">
+          <div class="actions" align="center">
+            <%= f.submit "Update" %>
+          </div>
+        </div>
+      <% end %>
+      <div class = "title">
+        <%= link_to "My Apps", candidate_apps_path %><br/>
+        <%= link_to "Employers", employers_path %><br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col search-col2">
+  <h3>Jobs ( <%= @positions.count %> )</h3>
+  <% if @positions.empty? %>
+    <p>No Positions.</p>
+  <% else %>
+    <% @positions.each do |position| %>
+      <div class = "content-container">
+        <p>Job Title: <%= position.title %></p>
+        <p>Employer: <%= link_to position.employer.name ? position.employer.name : "Happy Employer", user_path(position.employer.user) %>
+        </p>
+        <p> Description: <%= position.description %> </p>
+      <% if @myApps.include?(position.id) %>
+        <%= button_to "Applied",{},:style => "float:right;", :disabled => true %>
+      <% else %> 
+        <%= button_to "Apply", {:controller=>:candidate_apps, :action=>:create, :position_id => position.id}, :style => "float:right;" %>
+     <% end %>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>

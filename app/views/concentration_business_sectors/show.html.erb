@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Concentration:</b>
+  <%= @concentration_business_sector.concentration_id %>
+</p>
+
+<p>
+  <b>Business sector:</b>
+  <%= @concentration_business_sector.business_sector_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_concentration_business_sector_path(@concentration_business_sector) %> |
+<%= link_to 'Back', concentration_business_sectors_path %>

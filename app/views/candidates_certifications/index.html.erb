@@ -1,0 +1,25 @@
+<h1>Listing candidates_certifications</h1>
+
+<table>
+  <tr>
+    <th>Candidate</th>
+    <th>Certification</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @candidates_certifications.each do |candidates_certification| %>
+  <tr>
+    <td><%= candidates_certification.candidate_id %></td>
+    <td><%= candidates_certification.certification_id %></td>
+    <td><%= link_to 'Show', candidates_certification %></td>
+    <td><%= link_to 'Edit', edit_candidates_certification_path(candidates_certification) %></td>
+    <td><%= link_to 'Destroy', candidates_certification, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Candidates certification', new_candidates_certification_path %>

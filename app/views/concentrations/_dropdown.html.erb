@@ -1,0 +1,5 @@
+  <select name="concentration">
+  <% @concentrations.each do |conc| %>
+    <option value="<%=conc.id%>"><%= conc.name %></option>
+  <% end %>
+  </select>

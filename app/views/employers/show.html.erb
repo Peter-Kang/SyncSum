@@ -1,0 +1,73 @@
+<div class="col profile-col1">
+  <div class="placelogo"></div>
+  <div style="clear:both;"></div>
+  
+  <%= render "employers/postcard" %>
+</div>
+
+<div class="col profile-col2">
+  <div class="title">Our jobs:</div>
+
+  <% if @user == current_user %>
+    <div id="new-position-wrapper" align="center">
+      <div class="btn"><%= link_to "+ Position", new_position_path, remote: true, id: 'new-position-link' %></div>
+      <div id="new-position" class="content-container">
+        <div id="position-errors"></div>
+        <div id="new-position-form"></div>
+      </div>
+    </div>
+
+    <% if !@positions %>
+      (Currently none)
+    <% else %>
+      <div id = "position-list">
+        <%= render @positions %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if !@positions %>
+    (Currently none)
+  <% elsif current_user.candidate %>
+    <% @employer.positions.each do |position| %>
+      <div style="border-style:solid; border-color: black; margin:2px;">
+        <p>Name: <%= position.title %></p>
+        <% if @myApps.include?(position.id) %>
+          <%= button_to "Applied",{}, :disabled => true %>
+        <% else %> 
+          <%= button_to "Apply", {:controller=>:candidate_apps, :action=>:create, :position_id => position.id} %>
+        <% end %>
+      </div> 
+    <% end %>
+  <% end %>
+</div>
+
+<div class="col profile-col3">
+  <div class="title">Contact us:</div>
+  
+  <div class="content-container">
+    Test text
+  </div>
+  
+  <div class="content-container">
+    Test text
+  </div>
+</div>
+
+<!--   <div class="accordionButton">Are you an educational institution?</div>
+  <div class="accordionContent">
+    <%= form_for @employer do |f| %>
+      <h3>University:</h3>
+      <% UniversityType.all.each do |institution_type| %>
+        <%= check_box_tag "employer[institution_type_ids][]", institution_type.id, @employer.institution_type_ids.include?(institution_type.id) %>
+        <%= institution_type.name %><br />
+      <% end %>
+      <h3>School:</h3>
+      <% SchoolType.all.each do |institution_type| %>
+        <%= check_box_tag "employer[institution_type_ids][]", institution_type.id, @employer.institution_type_ids.include?(institution_type.id) %>
+        <%= institution_type.name %><br />
+      <% end %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div> -->

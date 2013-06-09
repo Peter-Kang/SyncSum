@@ -1,0 +1,30 @@
+<%= form_for @education, remote: true, html: { class: 'form' } do |f| %>
+  <div class="field">
+    <%= f.label :school_name, 'School' %><br />
+    <%= f.text_field :school_name, data: { autocomplete_source: schools_path }, id: 'education-school-name', class: 'autocomplete' %>
+  </div>
+  <div class="field">
+    <%= f.label :degree %><br />
+    <%= f.collection_select :degree_id, Degree.all, :id, :name, prompt: "Degree:", :class => "degree" %>
+  </div>
+  <div class="field">
+    <%= f.label :concentration %><br />
+    <%= f.collection_select :concentration_id, Concentration.all, :id, :name, prompt: "Concentration:" %>
+  </div>
+  <div class="field">
+    <%= f.label :gpa %><br />
+    <%= f.text_field :gpa %>
+  </div>
+  <div class="field">
+    <%= f.label :honors %><br />
+    <%= f.check_box :honors %>
+  </div>
+  <div class="field">
+    <%= f.label :ranking %><br />
+    <%= f.text_field :ranking %>
+  </div>
+  <div class="actions">
+    <%= f.submit value: "Add Education", class: "submit" %> |
+    <%= link_to 'Cancel', profile_path, id: 'new-education-cancel' %>
+  </div>
+<% end %>

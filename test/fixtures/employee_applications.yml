@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  employer_Id: 1
+  employee_id: 1
+
+two:
+  employer_Id: 1
+  employee_id: 1

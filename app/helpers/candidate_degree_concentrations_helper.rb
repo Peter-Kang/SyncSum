@@ -1,0 +1,2 @@
+module CandidateDegreeConcentrationsHelper
+end

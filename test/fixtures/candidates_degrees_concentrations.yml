@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  candidate_id: 1
+  degree_id: 1
+  concentration_id: 1
+
+two:
+  candidate_id: 1
+  degree_id: 1
+  concentration_id: 1

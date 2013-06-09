@@ -1,0 +1,13 @@
+<h5 class="name">
+<% if current_user.candidate.last_name && current_user.candidate.first_name %>
+	<%= current_user.candidate.first_name %> <%= current_user.candidate.last_name %>
+<% else %>
+	Your Name
+<% end %>
+</h5>
+<% if current_user.city && current_user.state %>
+	<p><%= current_user.city %>, <%= current_user.state %></p>
+<% end %>
+<% if current_user.candidate.employment_status %>
+	<%= current_user.candidate.employment_status %>
+<% end %>

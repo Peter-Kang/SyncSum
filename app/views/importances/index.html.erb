@@ -1,0 +1,27 @@
+<h1>Listing importances</h1>
+
+<table>
+  <tr>
+    <th>Level</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @importances.each do |importance| %>
+  <tr>
+    <td><%= importance.level %></td>
+    <td><%= link_to 'Show', importance %></td>
+    <td><%= link_to 'Edit', edit_importance_path(importance) %></td>
+    <td><%= link_to 'Destroy', importance, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<br />
+
+<%= link_to 'New Importance', new_importance_path %>
+
+<%= link_to 'Dropdown', dropdown_importances_path %>

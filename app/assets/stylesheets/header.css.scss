@@ -1,0 +1,280 @@
+/*
+ * Navigataur: A pure CSS responsive navigation menu
+ * Author: Mike King (@micjamking)
+ */
+
+/*
+ 	Notes:
+ 
+ 	- Media queries should be edited in both style sections if you require 
+	  a different breakpoint for your navigation.
+	  
+	- Toggle class & menu anchor tags in list items have box-sizing: border-box 
+	  style property to allow padding inside the container without conflicting with layout.	
+*/
+
+/*--------------------------------
+ Functional Styles (Required)
+---------------------------------*/
+/* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) 
+body{ -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }*/
+
+#toggle, .toggle { display: none; }
+.menu > li { list-style: none; display: inline-block;	}
+
+/* Nicolas Gallagher micro clearfix */
+.clearfix:before, .clearfix:after { display: table; content: ""; }
+.clearfix:after { clear: both; }
+
+@media only screen and (max-width: 870px){
+	.menu { display: none; opacity: 0; position: absolute; right: 0; }
+	.menu > li { display: block; width: 100%; margin: 0; }
+	.menu > li > a { display: block; width: 100%; text-decoration: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+	.toggle { display: inline-block; position: relative; cursor: pointer; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+	#toggle:checked ~ .menu { display: inline-block; opacity: 1;}
+	.settings { display: none; }
+	.settingsbox { display: none; }
+}
+
+
+/*--------------------------------
+ Presentation Styles (Editable)
+---------------------------------*/
+
+.header{
+	height: 100px;
+	margin: 0 0 20px 0;
+	padding: 0;
+	background: #000000; /* for non-CSS browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#3d3c3c));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#3d3c3c'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#3d3c3c)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #000,  #3d3c3c); /* for firefox 3.6+ */
+	text-align: center;
+	-moz-box-shadow:0px 0px 6px #000;
+	-webkit-box-shadow:0px 1px 6px #000;
+	box-shadow:0px 1px 6px #000;
+}
+
+.logo{
+	background: url(image-path("SyncSum.png")) no-repeat;
+	width: 150px;
+	height: 100px;
+	background-size: 100%;
+	vertical-align: middle;
+	float: left;
+	margin-left: 5%;
+	margin-right: 0;
+	margin-top: 5px;
+}
+
+.menu{
+	margin-right: auto;
+	margin-left: auto;
+	width: 60%;
+	float: left;
+	text-align: center;
+}
+
+.menu, .menu > li, .menu > li > a{ 
+	padding-top: 6px;
+	height: 71px;
+}
+
+.menu > li > a{
+	display: block;
+	padding-left: 25px;
+	padding-right: 25px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+	-webkit-transition: all 0.25s linear;
+	-moz-transition: all 0.25s linear;
+	-o-transition: all 0.25s linear;
+	transition: all 0.25s linear;
+	color:#fff;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 28px;
+	margin: 0;
+}
+
+.menu > li > a:hover, .menu > li > a:focus {
+	box-shadow: inset 0px -5px #f1290e;
+}
+
+.toggle{ 
+	z-index: 2; 
+}
+
+.mobisettings{
+	display: none !Important;
+}
+
+.settings > a{ 
+	display: inline-block; 
+	float: right; 
+	padding-top: 35px;
+	padding-right: 5%;
+	padding-left: 0;
+	margin: 0;
+	text-decoration: none;
+	font-weight: bold;
+	color: #fff !Important;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 28px;
+	vertical-align: bottom;
+}
+
+.settingsbox {
+	background: rgba(0,0,0,0.8);
+	float: right; 
+	border: 2px solid #f1290e;
+	padding: 10px;
+	margin-right: 5%;
+	text-align: left;
+	display: none;
+}
+
+.settingsbox > a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #fff !Important;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	vertical-align: bottom;
+	text-align: left;
+}
+
+div.settingsbox:after{
+    content:'';
+    position:absolute;
+}
+
+div.settings:hover div.settingsbox { 
+	display: block; 
+}
+
+@media only screen and (max-width: 1350px){
+	.menu{
+		width: 55%;
+	}
+	.menu > li > a{
+		font-size: 24px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	.settings > a{
+		font-size: 24px;
+	}
+}
+
+@media only screen and (max-width: 1100px){
+	.menu{
+		width: 500px;
+	}
+	.menu > li > a{
+		font-size: 22px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.settings > a{
+		font-size: 20px;
+	}
+}
+
+@media only screen and (max-width: 920px){
+	.menu{
+		width: 460px;
+	}
+	.menu > li > a{
+		font-size: 20px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	
+	.settings > a{
+		font-size: 18px;
+	}
+}
+
+@media only screen and (max-width: 870px){
+	.header{
+		height: 50px;
+	}
+	.menu{
+		background: #000000;
+		border-top: 1px solid #f1290e;
+		width: 100%;
+		height: 100%;
+		margin-top: 50px;
+	}
+	
+	.menu, .menu > li, .menu > li > a{
+		height: auto;
+	}
+	
+	.menu > li > a{
+		padding: 5px;
+		margin: 0;
+		width: 100%;
+	}
+	
+	.menu > li > a:hover, .menu > li > a:focus{
+		background: #3d3c3c;
+		box-shadow: inset 5px 0px #f1290e;
+	}
+
+	.mobisettings{
+		display: block !Important;
+	}
+	
+	.toggle:after {
+		content: 'MENU';
+		padding: 13px;
+		width: 100%;
+		float: right;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		text-align: center;
+		vertical-align: middle;
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 20px;
+		color: #FFFFFF;
+		-webkit-transition: all 0.5s linear;
+		-moz-transition: all 0.5s linear;
+		-o-transition: all 0.5s linear;
+		transition: all 0.5s linear;
+		height: 100%;
+	}
+	
+	.toggle:hover:after{
+		background: #3d3c3c;
+	}
+	
+	#toggle:checked + .toggle:after{
+		content: 'Close Menu';
+	}
+	
+	.logo{
+	width: 80px ;
+	height: 50px;
+	margin-left: 5%;
+}
+}
+
+@media only screen and (max-width: 479px){
+	.header > h1 { 
+		text-align: center;
+	}
+	.header > h1, .nav, .toggle:after{ 
+		float: none; 
+	}
+	.toggle:after { 
+		text-align: center; width: 100%; 
+	}
+}

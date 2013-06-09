@@ -1,0 +1,3 @@
+class SchoolType < InstitutionType
+
+end

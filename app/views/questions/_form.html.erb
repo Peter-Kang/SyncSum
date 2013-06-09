@@ -1,0 +1,29 @@
+<%= form_for(@question, :html => { :class => "center-form" }) do |f| %>
+<table class="center-table">
+  <tr>
+    <td class="label"><%= f.label :question %></td>
+    <td class="content"><%= f.text_area :question, :cols => "50", :rows => "3" %></td>
+  </tr>
+  <%= f.fields_for :answers do |builder| %>
+    <tr>
+      <td class="label"><%= builder.label :answer, "Answer " %></td>
+      <td class="content">
+        <%= builder.text_field :answer %>
+        <% unless @question.new_record? %>
+          <%= builder.check_box :_destroy %>
+          <%= builder.label :_destroy, "Remove Answer" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td class="label"><%= f.label :importance_id, "Importance" %></td>
+    <td class="content"><%= f.select :importance_id, Importance.all.map { |i| [i.level, i.id] } %></td>
+  </tr>
+  <tr>
+    <td class="label"><%= f.label :category_id, "Category" %></td>
+    <td class="content"><%= f.select :category_id, Category.all.map { |c| [c.name, c.id] } %></td>
+  </tr>
+</table>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,5 @@
+  <select name="importance">
+    <% @importances.each do |imp| %>
+    <option value="<%=imp.id%>"><%= imp.level %></option>
+  <% end %>
+  </select>

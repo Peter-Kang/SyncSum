@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  concentration_id: 1
+  business_sector_id: 1
+
+two:
+  concentration_id: 1
+  business_sector_id: 1

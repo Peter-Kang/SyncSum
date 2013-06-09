@@ -1,0 +1,3 @@
+class UniversityType < InstitutionType
+  
+end

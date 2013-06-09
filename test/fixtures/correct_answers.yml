@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  questionID: MyString
+  integer: MyString
+  question_answerID: 1
+  employer_userID: MyString
+  integer: MyString
+
+two:
+  questionID: MyString
+  integer: MyString
+  question_answerID: 1
+  employer_userID: MyString
+  integer: MyString

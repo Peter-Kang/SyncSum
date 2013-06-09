@@ -1,0 +1,78 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Avatar:</b>
+  <%= @user.avatar %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @user.password %>
+</p>
+
+<p>
+  <b>Registrationdate:</b>
+  <%= @user.registrationDate %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @user.street %>
+</p>
+
+<p>
+  <b>Apt:</b>
+  <%= @user.apt %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @user.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @user.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @user.zip %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @user.country %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @user.website %>
+</p>
+<% if @user.candidate %>
+	<p> Candidate </p>
+	<%= render :partial => 'candidates/test', :locals => {:candidate => @user.candidate} %>
+<% end %>
+
+<% if @user.employer %>
+  <p>Employer</p>
+  <%= render :partial => 'employers/show1', :locals => {:employer => @user.employer} %>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

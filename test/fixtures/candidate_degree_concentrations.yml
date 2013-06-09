@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  concentrationID: 1
+  degreeID: 1
+  employee_userID: 1
+
+two:
+  concentrationID: 1
+  degreeID: 1
+  employee_userID: 1

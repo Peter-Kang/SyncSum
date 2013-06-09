@@ -1,0 +1,20 @@
+<%= form_for @position, remote: true, html: { class: 'form' } do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<p>Minimum Degree</p>
+	<%= f.collection_select :minDegree, Degree.all, :id, :name, :prompt => "Minimum Degree:" %>
+	<p>Maximum Degree</p>
+	<%= f.collection_select :maxDegree, Degree.all, :id, :name, :prompt => "Maximum Degree:" %>
+	<p>Fields Desired <span id="np_add_field">[+]</span></p>
+	<%# np.collection_select :business_sectors, BusinessSector.all, :id, :name %>
+	<p>Certifications Desired</p>
+	<%= text_field_tag 'Certification'%>
+	<p> Experience Desired </p>
+	<p><%= f.text_field :minExp, :placeholder => "Min" %> to
+	<%= f.text_field :maxExp, :placeholder => "Max" %> years</p>
+	
+	<p>Description:</p>
+	<%= f.text_area :description %>
+	<p>Buisness Sectors </p>
+	<%= f.submit %> | <%= link_to 'Cancel', profile_path, id: 'new-position-cancel' %>
+<% end %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Candidate:</b>
+  <%= @candidates_certification.candidate_id %>
+</p>
+
+<p>
+  <b>Certification:</b>
+  <%= @candidates_certification.certification_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_candidates_certification_path(@candidates_certification) %> |
+<%= link_to 'Back', candidates_certifications_path %>

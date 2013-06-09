@@ -1,0 +1,84 @@
+class Question < ActiveRecord::Base
+  attr_accessible :question, :importance_id, :answers_attributes, :employer_id, :category_id
+
+  has_many :answers, :dependent => :destroy
+  belongs_to :importance
+  belongs_to :category
+  belongs_to :employer
+
+  accepts_nested_attributes_for :answers, :allow_destroy => true
+
+  validates :question, :presence => true
+  validates :importance_id, :presence => true
+  validates :employer_id, :presence => true
+
+  def self.newest
+    order("created_at DESC")
+  end
+
+  def self.oldest
+    order("created_at ASC")
+  end
+
+  def self.professional
+    joins(:category).where("categories.name = ?", 'Professional')
+  end
+
+  def self.social
+    joins(:category).where("categories.name = ?", 'Social')
+  end
+
+  def self.personal
+    joins(:category).where("categories.name = ?", 'Personal')
+  end
+
+  def self.answered(user)
+    answered_questions = user.answered_questions.collect { |question| question.id }
+    Question.where(['id IN (?)', answered_questions])
+  end
+
+  def self.most_popular
+    joins(:answers).select("distinct(Questions.id), question, importance_id, employer_id, category_id, questions.created_at, questions.updated_at").sort { |a, b| a.answers.size <=> b.answers.size }
+  end
+
+  def self.unanswerred(user, skip_ids)
+    answered_questions = user.answered_questions.collect { |question| question.id } - skip_ids
+    Question.where(['id NOT IN (?)', answered_questions])
+  end
+
+  def self.sort(newest, oldest, answer, review, category, importance, skip_ids, cu)
+    if review
+      if oldest
+        answer = answered(cu).oldest
+      elsif newest
+        answer = answered(cu).newest
+      elsif category
+        answer = unanswerred(cu, skip_ids).where(:category_id => category.id)
+      elsif importance
+        answer = unanswerred(cu, skip_ids).where(:importance_id => importance.id)
+      end
+    elsif answer
+      if oldest
+        answer = unanswerred(cu, skip_ids).oldest
+      elsif newest
+        answer = unanswerred(cu, skip_ids).newest
+      elsif category
+        answer = unanswerred(cu, skip_ids).where(:category_id =>category.id)
+      end
+    else
+      answer = unanswerred(cu, skip_ids)
+    end
+    answer
+  end
+
+  #is the provided answer in the pool of answers?
+  def in_answers?(answer)
+    (self.answers).include?(answer)
+  end
+
+  def answered(candidate)
+    candidate.answers.each do |answer|
+      return answer if in_answers?(answer)
+    end
+  end
+end

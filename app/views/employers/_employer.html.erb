@@ -1,0 +1,20 @@
+<div id="content">
+  <div class="col identity-col1">
+    <div class="placelogo" id="identity-img">
+      <% unless employer.user.nil? or employer.user.avatar.nil? %>
+        <%= link_to( image_tag("placeholder.jpg", :class => "avatar", :height => '150', :width => '150'), user_path(employer.user)) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col identity-col2">
+    <div class="col content-container" id="identity-container">
+      <%= link_to 'x', "#", :class => "skip" %>
+      <p><%= link_to( employer.name, user_path(employer.user))%></p>
+      <p><%= "#{employer.user.city} #{employer.user.state}" unless employer.user.nil? %></p>
+      <% if employer.company_size %>
+        <p><%= employer.company_size %> Employees</p>
+        <p>Positions: <%= employer.positions.count %> </p>
+      <% end %>
+    </div>
+  </div>
+</div>

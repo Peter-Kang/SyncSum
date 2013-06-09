@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Questionid:</b>
+  <%= @correct_answer.questionID %>
+</p>
+
+<p>
+  <b>Integer:</b>
+  <%= @correct_answer.integer %>
+</p>
+
+<p>
+  <b>Question answerid:</b>
+  <%= @correct_answer.question_answerID %>
+</p>
+
+<p>
+  <b>Employer userid:</b>
+  <%= @correct_answer.employer_userID %>
+</p>
+
+<p>
+  <b>Integer:</b>
+  <%= @correct_answer.integer %>
+</p>
+
+
+<%= link_to 'Edit', edit_correct_answer_path(@correct_answer) %> |
+<%= link_to 'Back', correct_answers_path %>

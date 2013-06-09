@@ -1,0 +1,33 @@
+<h1>Listing experiences</h1>
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Title</th>
+    <th>Responsibilities</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Candidate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @experiences.each do |experience| %>
+  <tr>
+    <td><%= experience.company %></td>
+    <td><%= experience.title %></td>
+    <td><%= experience.responsibilities %></td>
+    <td><%= experience.start %></td>
+    <td><%= experience.end %></td>
+    <td><%= experience.candidate_id %></td>
+    <td><%= link_to 'Show', experience %></td>
+    <td><%= link_to 'Edit', edit_experience_path(experience) %></td>
+    <td><%= link_to 'Destroy', experience, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Experience', new_experience_path %>

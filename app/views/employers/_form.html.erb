@@ -1,0 +1,8 @@
+<%= form_for(@employer, :html => { :class => "login"}) do |e| %>
+	<%= e.fields_for :user do |u| %>
+		<%= u.text_field :email, :placeholder => "Email" %>
+		<%= u.password_field :password, :placeholder => "Password" %>
+		<%= u.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+	<% end %>
+	<%= e.submit :value => "Sign-up", :class => "button2" %>
+<% end %>

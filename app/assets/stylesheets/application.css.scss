@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require header
+ *= require styles
+ *= require_self
+*/
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+
+  li {
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: #000;
+      display: block;
+      padding: 3px;
+    }
+    
+    a.ui-state-hover, a.ui-state-active {
+      background-color: #FFFCB2;
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div.question {
+  width:65%;
+  text-align: right;
+  div.answer {
+    overflow: auto;
+    margin: 0;
+    margin-bottom: 4px;
+    padding: 0;
+    text-align: left;
+    input {
+      width:30px;
+      margin-bottom: 0 !important;
+      display:inline;
+    }
+    label {
+      margin-top: 0 !important;
+      display:inline;
+      float:right;
+      font-size: 75%;
+    }
+  }
+  form {
+    p {
+      margin-bottom: 5px !important;
+    }
+    input.submit-button {
+      margin-bottom: 0 !important;
+      display:inline;
+      width:35%;
+      height:32px;
+      font-size: 75%;
+    }
+    a {
+      display:inline;
+      font-size: 75%;
+    }
+  }
+}
+
+div.link_container {
+  text-align: left;
+}
+
+#question-area input.submit-button {
+  width: 100px;
+}
+#new-experience, #new-education {
+  display: none;
+}
+
+#experience-list {
+ 
+  .experience-more {
+    display: none;
+  }
+
+  .less {
+    display: none;
+  }
+}
+
+ul.no_bullets {
+  list-style-type: none;
+}
+
+form.center-form {
+  text-align: center;
+}
+
+table.center-table {
+  margin-left:auto; 
+  margin-right:auto;
+  td.label {
+    text-align: right;
+    padding-right: 3px;
+  }
+  td.content {
+    text-align: left;
+    padding-left: 3px;
+  }
+}
+
+

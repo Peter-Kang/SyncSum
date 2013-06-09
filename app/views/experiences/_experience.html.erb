@@ -1,0 +1,13 @@
+<div class="content-container">
+  <%= experience.title %> @ <%= experience.company %><br />
+  <%= experience.start.try(:strftime, "%m/%d/%Y") %> to 
+  <%= experience.end.try(:strftime, "%m/%d/%Y") %><br />
+  <div class="experience-more">
+    <strong>Job functions:</strong><br />
+    <%= experience.job_functions.map { |jf| jf.name }.join(', ') %><br />
+    <strong>Business sectors:</strong><br />
+    <%= experience.business_sectors.map { |bs| bs.name }.join(', ') %>
+  </div>
+  <%= link_to 'More', experience_path(experience), class: 'more' %>
+  <%= link_to 'Less', '#', class: 'less' %>
+</div>

@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th><h4>Question</h4></th>
+    <th><h4>Answers</h4></th>
+    <th><h4>Your Answer</h4></th>
+  </tr>
+  <% @answered_questions.each do |hash| %>
+  <tr>
+    <td><%= hash[:question].question %></td>
+    <td>
+      <ul>
+        <% hash[:question].answers.each do |answer| %>
+          <li><%= answer.answer %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td><%= hash[:answer].answer %></td>
+  </tr>
+  <% end %>
+</table>

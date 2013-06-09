@@ -1,0 +1,37 @@
+<%= form_for(@correct_answer) do |f| %>
+  <% if @correct_answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@correct_answer.errors.count, "error") %> prohibited this correct_answer from being saved:</h2>
+
+      <ul>
+      <% @correct_answer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :questionID %><br />
+    <%= f.text_field :questionID %>
+  </div>
+  <div class="field">
+    <%= f.label :integer %><br />
+    <%= f.text_field :integer %>
+  </div>
+  <div class="field">
+    <%= f.label :question_answerID %><br />
+    <%= f.number_field :question_answerID %>
+  </div>
+  <div class="field">
+    <%= f.label :employer_userID %><br />
+    <%= f.text_field :employer_userID %>
+  </div>
+  <div class="field">
+    <%= f.label :integer %><br />
+    <%= f.text_field :integer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

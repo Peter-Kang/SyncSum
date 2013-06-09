@@ -1,0 +1,8 @@
+<%= concentration.name %>
+  
+  <% if concentration.business_sectors %>
+    <b>Business Sectors: </b>
+    <% concentration.business_sectors.each do |bs| %>
+      <%= render :partial => 'business_sectors/name', :locals => {:business_sector => bs}%>
+    <% end %>
+  <% end %>

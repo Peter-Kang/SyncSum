@@ -1,0 +1,25 @@
+<%= form_for(@concentration_business_sector) do |f| %>
+  <% if @concentration_business_sector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@concentration_business_sector.errors.count, "error") %> prohibited this concentration_business_sector from being saved:</h2>
+
+      <ul>
+      <% @concentration_business_sector.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :concentration_id %><br />
+    <%= f.number_field :concentration_id %>
+  </div>
+  <div class="field">
+    <%= f.label :business_sector_id %><br />
+    <%= f.number_field :business_sector_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

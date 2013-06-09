@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sync Your Fact Sheet</title>
+    <%= stylesheet_link_tag "auth" %>
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin:400,700" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  
+  <body>
+    <div id="container">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+      
+      <div id="logo">
+        <p>Sync Sum Beta</p>
+      </div>
+      <%= yield %>
+    </div>
+    </script>
+  </body>
+</html>

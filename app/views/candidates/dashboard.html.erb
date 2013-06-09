@@ -1,0 +1,26 @@
+<% content_for :title do %>
+  Dashboard (<%= @unRead.count %>)
+<% end %>
+<div class="col dashboard-col1">
+  <div class="title">
+    Polls:
+  </div>
+  <% @questions.each do |question| %>
+    <%= render :partial => 'questions/question', :locals => { :existing_answer => question.answered(current_user.candidate), :question => question } %>
+  <% end %>
+</div>
+<div class="col dashboard-col2">
+  
+  <div class="title">
+    Saved search results:
+  </div>
+  <%= render @results %>
+</div>
+<div class="col dashboard-col3">
+  <div class="title">
+    Recommended employers:
+  </div>
+  <%= render @recommended %>
+</div>
+
+

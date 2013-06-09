@@ -1,0 +1,11 @@
+<% Candidate.all.each do |candidate| %>
+	<% if !candidate.first_name.nil? || !candidate.last_name.nil? || !candidate.user.city.nil? || !candidate.user.state.nil?%>
+	<div>
+		<div class="avatar-border">
+			<%= link_to(image_tag(candidate.user.avatar.url(:thumb), :class => "avatar"), user_path(candidate.user)) %>
+		</div>
+		<p><%= candidate.last_name %>, <%= candidate.first_name %></p>
+		<p><%= candidate.user.city %>, <%= candidate.user.state %></p>
+	</div>
+	<% end %>
+<% end %>

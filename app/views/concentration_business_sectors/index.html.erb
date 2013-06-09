@@ -1,0 +1,25 @@
+<h1>Listing concentration_business_sectors</h1>
+
+<table>
+  <tr>
+    <th>Concentration</th>
+    <th>Business sector</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @concentration_business_sectors.each do |concentration_business_sector| %>
+  <tr>
+    <td><%= concentration_business_sector.concentration_id %></td>
+    <td><%= concentration_business_sector.business_sector_id %></td>
+    <td><%= link_to 'Show', concentration_business_sector %></td>
+    <td><%= link_to 'Edit', edit_concentration_business_sector_path(concentration_business_sector) %></td>
+    <td><%= link_to 'Destroy', concentration_business_sector, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Concentration business sector', new_concentration_business_sector_path %>

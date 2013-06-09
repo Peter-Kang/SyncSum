@@ -1,0 +1,5 @@
+<h3><%= position.title %></h3>
+<p>Degree Requirement: <%= position.minDegree %> to <%= position.maxDegree %></p>
+<p> Experience Desired: <%= position.minExp %> to <%= position.maxExp %> years</p>
+<p><%= link_to 'Edit', edit_position_path(position) %> |
+<%= link_to 'Delete', position, confirm: 'Are you sure?', method: :delete, :class => "bad" %></p>

@@ -1,0 +1,14 @@
+<h3>Question</h3>
+<% path = current_user.employer? ? prefer_answer_question_path : answer_this_question_path %>
+<% method = @answer.nil? ? :post : :put %>
+<%= form_tag path, :method => method do %>
+  <p><%= @question.question %></p>
+  <ul>
+    <% @question.answers.shuffle.each do |answer| %>
+      <li>
+        <%= radio_button_tag 'answer_id', answer.id, @answer == answer %> <%= answer.answer %>
+      </li>
+    <% end %>
+  </ul>
+  <%= submit_tag 'Answer' %>
+<% end %>

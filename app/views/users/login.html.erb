@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Sync Your Fact Sheet</title>
+		<%= stylesheet_link_tag "auth" %>
+		<link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"> </script>
+	</head>
+	
+	<body>
+		<div id="container">
+			<div id="logo">
+				<p>Sync Sum Beta</p>
+			</div>
+			<% if flash[:notice] %>
+				<div id="notice"><%= flash[:notice]%></div>
+			<% end %>
+			<h1>CREATE AN ACCOUNT</h1>
+			<div id="register">
+				<a href="#" class="button2" id="sign_up">Sign Up</a>
+			</div>
+
+			<h1>ALREADY A MEMBER?</h1>
+			<%= form_for("user", :url => user_session_path, :html => { :class => "login"}) do |f| %> 
+				<%= f.text_field :login, :placeholder => "Email" %>
+				<%= f.password_field :password, :placeholder => "Password" %>
+				<%= f.submit "Sign in", :class =>"button" %>
+				<%= link_to "Forgot your password?", new_password_path('user') %>
+			<% end %>
+		</div>
+		
+		<script type="text/javascript">
+			$("#sign_up").click( function() {
+				$.ajax({
+					url:"/users/choose_type",
+					cache: false,
+					success:function(html){
+						$("#register").empty();
+						$("#register").append(html);
+					}
+				});
+			});
+			
+			function clearMe(text){
+			 	if (text.defaultValue==text.value)
+			   	text.value = ""
+			 }
+			 
+			function replaceT(obj){
+				var newO=document.createElement('input');
+				newO.setAttribute('type','password');
+				newO.setAttribute('name',obj.getAttribute('name'));
+				obj.parentNode.replaceChild(newO,obj);
+				newO.focus();
+				newO.setAttribute('placeholder','Password');
+				
+			}
+		</script>
+	</body>
+</html>

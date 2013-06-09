@@ -1,0 +1,42 @@
+<div class="col profile-col1">
+  <div class="placeimg"><%= image_tag(current_user.avatar.url(:thumb), :class => "avatar") %></div>
+  <div style="clear:both;"></div>
+  
+  <div class="title">
+    Welcome back
+  </div>
+  <div class="content-container">
+    <%= link_to "Inbox", messages_path %> ( <%= @unRead.count %> )
+  </div>
+  
+  <% if current_user.isAdmin %>
+    <div class="title">
+      People in your email group
+    </div>
+    <div class="content-container">
+      People in group: <%= @myUsers.size %> <br/>
+      <% @myUsers.each do |u| %>
+        <%= u.email %> <br/>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="col profile-col2">
+  <div class="title">
+    Refine your applicant pool with these questions!
+  </div>
+  <div id="experience-list">
+    <% @questions.each do |question| %>
+      <%= render :partial => 'questions/question', :locals => { :existing_answer => question.answered(current_user.employer), :question => question } %>
+    <% end %>
+  </div>
+</div>
+<div class="col profile-col3">
+  <div class="title">
+    Check out these Candidates
+  </div>
+  <div id="experience-list">
+    <%= render :partial => "candidates/list" %> 
+  </div>
+</div>

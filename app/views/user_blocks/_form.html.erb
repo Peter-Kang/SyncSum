@@ -1,0 +1,25 @@
+<%= form_for(@user_block) do |f| %>
+  <% if @user_block.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_block.errors.count, "error") %> prohibited this user_block from being saved:</h2>
+
+      <ul>
+      <% @user_block.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :blocker %><br />
+    <%= f.number_field :blocker %>
+  </div>
+  <div class="field">
+    <%= f.label :blockee %><br />
+    <%= f.number_field :blockee %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

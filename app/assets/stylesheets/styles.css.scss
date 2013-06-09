@@ -1,0 +1,288 @@
+* {margin:0;padding:0;} 
+
+html, body {height: 100%;}
+
+body{
+	margin:0 auto; 
+	padding:0;
+	background-image: url(image-path("lightsquares.png"));
+	background-color: #e4d9d9;
+	background-repeat: repeat;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	color: #404040;
+}
+
+img.avatar {
+	float: left;
+}
+
+#wrap {min-height: 100%;}
+
+#main {overflow:auto;
+	padding-bottom: 60px;}  /* must be same height as the footer */
+
+a, a:visited {
+	font-family: Helvetica, Arial, sans-serif;
+	color: #f1290e;
+	text-decoration: none;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+
+a:hover, a:active {
+	color: #404040;
+}
+
+.title{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-align: center;
+	color: #404040;
+}
+
+.content-container{
+	padding: 7px;
+	background: #fff;
+	border: 1px solid #f1290e;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	margin-bottom: 15px;
+	min-height: 100px;
+	text-align: left;
+	color: #404040;
+}
+.searchFieldBox{
+	
+	width: 150px;
+}
+#show{
+	margin-top: -15px;
+	height: 25px;
+	display: block;
+	background: #ffffff; /* for non-CSS browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.7)), to(rgba(255,255,255,1))); /* for webkit browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(255,255,255,0.7)', endColorstr='rgba(255,255,255,1)'); /* for IE */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0.7),  rgba(255,255,255,1)); /* for firefox 3.6+ */
+	background: -moz-linear-gradient(top,  #000,  #3d3c3c); /* for firefox 3.6+ */
+	vertical-align: baseline;
+	text-align: center;
+}
+
+.skip {
+	float: right;
+	padding: 3px;
+	margin: 0;
+	vertical-align: top;
+}
+
+.placeimg{
+	//commenting these lines out for Imagine RIT
+	//border: 1px solid #f1290e;
+	//border-radius: 50%;
+	-moz-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	width: 80%;
+    height: 0;
+	max-width: 350px;
+	max-height: 350px;
+    padding-bottom: 80%;
+	background-size: cover;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: 15px;
+}
+
+.placelogo {
+	border: 1px solid #f1290e;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	width: 80%;
+  height: 0;
+	max-width: 350px;
+	max-height: 350px;
+  padding-bottom: 80%;
+	background-size: cover;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: 15px;
+}
+
+.btn {
+	background: #f1290e;
+	border-radius: 20%;
+	-moz-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	-webkit-border-radius: 20px;
+	font-size: 18px;
+	padding: 5px;
+	max-width: 150px;
+	float: center !important;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+	margin-bottom: 5px;
+}
+
+.btn > a {
+	color: #ffffff;
+	font-family: Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	display: block;
+}
+
+.btn:hover {
+	background: #404040;
+}
+
+/* RESPONSIVE GRID SYSTEM  */
+.section {
+	clear: both;
+	padding: 0;
+	margin-left:auto;
+	margin-right:auto;
+	width: 90%;
+	display: inline-block;
+}
+
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.col {
+	display: inline-block;
+	margin: 1% 0 1% 1.6%;
+	vertical-align:top;
+	height:100%;
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/* Profile  */
+.profile-col1 {
+	width: 25%; 
+}
+.profile-col2 {
+	width: 45%; 
+}
+.profile-col3 {
+	width: 25%; 
+}
+
+/* Polls  */
+.polls-col1 {
+	width: 30%; 
+}
+.polls-col2 {
+	width: 30%; 
+}
+.polls-col3 {
+	width: 30%; 
+}
+
+/* Dashboard */
+.dashboard-col1 {
+	width: 25%; 
+}
+.dashboard-col2 {
+	width: 35%; 
+}
+.dashboard-col3 {
+	width: 35%; 
+}
+.identity-col1 {
+	width: 30%;
+	max-width:200px;
+}
+.identity-col2 {
+	width: 65%;
+}
+#identity-img {
+	width: 100% !Important;
+	height: 100% !Important;
+	margin-bottom: 0;
+}
+#identity-container {
+	height: 100% !Important;
+}
+
+/* Search */
+.search-col1 {
+	width: 25%; 
+}
+.search-col2 {
+	width: 70%; 
+}
+/*.searchoptions-col1 {
+	width: 30%; 
+}
+.searchoptions-col2 {
+	width: 30%; 
+}
+.searchoptions-col3 {
+	width: 30%; 
+}*/
+
+/*  Full width columns at 620px screen */
+@media only screen and (max-width: 620px) {
+	.col {
+		width: 100%;
+		margin: 1% 0 1% 0%;
+	}
+}
+
+/* Footer */
+.footer{
+	width: 100%;
+	height: 100%;
+	background: #000;
+	padding: 5px;
+	color: #fff;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: baseline;
+	position: relative;
+	margin-top: -60px;
+	height: 60px;
+	clear:both;
+}
+
+/* Turn background white for print */
+@media print{
+body{background: #fff;}
+}
+
+
+/* Responsive formatting */
+
+@media only screen and (max-width: 700px) {
+.title{
+	font-size: 26px;
+	margin-bottom: 15px;
+}
+}
+

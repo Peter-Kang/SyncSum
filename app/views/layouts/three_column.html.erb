@@ -1,0 +1,14 @@
+<% content_for :content do %>
+        <div class="four columns">
+        	<%= yield :leftContent %>
+		</div>
+		
+        <div class="eight columns">
+			<%= yield %>
+		</div>
+
+        <div class="four columns">
+			<%= yield :rightContent %>
+		</div>
+<% end %>
+<%= render :template => 'layouts/application' %>

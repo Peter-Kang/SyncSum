@@ -1,0 +1,9 @@
+<%= form_for(business_sector) do |f| %>
+  <div class="field">
+    <%= f.label :Add_business_sector %>
+    <%= render :partial => 'business_sectors/dropdown', :locals => {:business_sectors => @business_sectors} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

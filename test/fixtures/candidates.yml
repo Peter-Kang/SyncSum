@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userid: 1
+  resume: MyString
+  dayOfBirth: 1
+  monthOfBirth: 1
+  firstName: MyString
+  lastName: MyString
+
+two:
+  userid: 1
+  resume: MyString
+  dayOfBirth: 1
+  monthOfBirth: 1
+  firstName: MyString
+  lastName: MyString

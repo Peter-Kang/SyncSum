@@ -1,0 +1,15 @@
+<div class="header">
+  <div class="logo"></div>
+  <input type='checkbox' id='toggle' />
+    
+  <%= render 'layouts/nav' %>
+  <label for='toggle' class='toggle'></label>
+    
+  <div class="settings">
+    <a href="#"><%= current_user.candidate? ? current_user.candidate.full_name : Employer %> &#9660;</a>
+    <div class="settingsbox">
+      <!--<%= link_to "Inbox", messages_path %><br/>-->
+      <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+    </div>
+  </div>
+</div>

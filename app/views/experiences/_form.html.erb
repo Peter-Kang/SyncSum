@@ -1,0 +1,35 @@
+<%= form_for @experience, remote: true, html: { class: 'form' } do |f| %>
+  <%= f.label :company %>
+  <%= f.text_field :company %><br />
+  <%= f.label :title, 'Position (Title)' %>
+  <%= f.text_field :title %><br />
+  <%= f.label :start %>
+  <%= f.date_select :start %><br />
+  <%= f.label :end %>
+  <%= f.date_select :end %><br />
+
+  <%= f.fields_for :business_sectors do |builder| %>
+    <div class="label">
+      Industry: <%= link_to '(+)', '#', id: 'add-business-sector' %>
+    </div>
+    <div id="business-sectors">
+      <div class="business-sector-select">
+        <%= select_tag 'experience[business_sector_ids][]', options_from_collection_for_select(BusinessSector.all, :id, :name), prompt: '(Select)' %>
+        <br />
+      </div>
+    </div>
+  <% end %>
+  
+  <%= f.fields_for :job_functions do |builder| %>
+    <div class="label">
+      Responsibility: <%= link_to '(+)', '#', id: 'add-job-function' %>
+    </div>
+    <div id="job-functions">
+      <div class="job-function-select">
+        <%= select_tag 'experience[job_function_ids][]', options_from_collection_for_select(JobFunction.all, :id, :name), prompt: '(Select)' %><br />
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.submit %> | <%= link_to 'Cancel', profile_path, id: 'new-experience-cancel' %>
+<% end %>

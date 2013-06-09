@@ -1,0 +1,25 @@
+<h1>Listing user_blocks</h1>
+
+<table>
+  <tr>
+    <th>Blocker</th>
+    <th>Blockee</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_blocks.each do |user_block| %>
+  <tr>
+    <td><%= user_block.blocker %></td>
+    <td><%= user_block.blockee %></td>
+    <td><%= link_to 'Show', user_block %></td>
+    <td><%= link_to 'Edit', edit_user_block_path(user_block) %></td>
+    <td><%= link_to 'Destroy', user_block, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User block', new_user_block_path %>

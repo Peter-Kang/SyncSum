@@ -1,0 +1,46 @@
+<%= form_for @user.employer do |f| %>
+  <div class="accordionButton">Vitals:</div> 
+  <div class="accordionContent">
+    <%= f.label :name, "Full Company Name" %>
+    <%= f.text_field :name %>
+    <%= f.label :tagline %>
+    <%= f.text_field :tagline %>
+    <%= f.label :mission_statement %>
+    <%= f.text_field :mission_statement %>
+    <%= f.label :description, "Company Description" %>
+    <%= f.text_area :description %>
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+    <%= f.label :primary_industry %>
+    <%= f.text_field :primary_industry %>
+    <%= f.label :size, "Company Size" %>
+    <%= f.select :size, Employer::SIZE_VALUES, :include_blank => "Select" %>
+    <%= f.label :employee_turnover %>
+    <%= f.text_field :employee_turnover %>
+    <%= f.label :corporate_headquarters %>
+    <%= f.select :corporate_headquarters, Employer::CORPORATE_HEADQUARTERS_VALUES, :include_blank => "Select" %>
+    <%= f.text_field :employee_turnover %>
+    <%= f.label :international_offices, "Number of International Offices" %>
+    <%= f.text_field :international_offices %>
+    <%= f.fields_for :user do |u| %>
+      <%= render :partial => "users/location", :locals => { :f => u } %>
+    <% end %>
+  </div>
+  
+  <div class="accordionButton">Search Criteria</div>
+  <div class="accordionContent">
+    <%= label_tag "Hiring Status" %>
+    <%= select_tag :hiring_status, options_for_select(["Hiring","Not Hiring but looking","Not interested at all"]) %>
+    <%= f.label "Search Radius" %>
+    <%= f.select :search_radius, [[10,10],[25,25],[50,50],[75,75],[100,100],[200,200],[300,300],[400,400],[500,500],["Any Distance","Any Distance"]] %>
+    <%= f.label "Company Size" %>
+    <%= f.select :company_size, [["0 - 50","0 - 50"],["50 - 100","50 - 100"],["100 - 250","100 - 250"],["250 - 1000","250 - 1000"],["1000 - 2000","1000 - 2000"],["2000 - 5000","2000 - 5000"],["5000+","5000+"]] %>
+    <p>Search Among</p>
+    <%= check_box_tag 'Unemployed','Underemployed' %> Underemployed <br/> 
+    <%= check_box_tag 'Unemployed','Unemployed' %> Unemployed <br/>
+    <%= check_box_tag 'Employed','Employed' %> Employed <br/>
+  </div>
+  <%= f.submit "Update Profile"%>
+<% end %>

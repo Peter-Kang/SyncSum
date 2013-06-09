@@ -1,0 +1,5 @@
+  <select name="concentration_business_sector[business_sector_id]">
+    <% business_sectors.each do |bs| %>
+    <option value="<%=bs.id%>"><%= bs.name %></option>
+  <% end %>
+  </select>

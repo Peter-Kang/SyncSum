@@ -1,0 +1,49 @@
+<div class="col profile-col1">
+  <div class="title">Compatibility Questions</div>
+  <div class="content-container">
+    You have answered <%= current_user.answered_questions.size %> questions.
+  </div>
+  
+  <div class="title">Sorting Links</div>
+  <div class="content-container">
+    <div class="link_container">
+      <h3>Review Answers</h3>
+      <ul class="no_bullets">
+        <li><%= link_to 'Oldest', :oldest => true, :review => true %></li>
+        <li><%= link_to 'Newest', :newest => true, :review => true %></li>
+        <li><%= link_to 'Professional', :category => "Professional", :review => true %></li>
+        <li><%= link_to 'Social', :category => "Social", :review => true %></li>
+        <li><%= link_to 'Ethical', :category => "Ethical", :review => true %></li>
+        <!-- <li><%# link_to 'Minor', :importance => "Minor", :review => true %></li>
+        <li><%# link_to 'Moderate', :importance => "Moderate", :review => true %></li>
+        <li><%# link_to 'Mandatory', :importance => "Mandatory", :review => true %></li> -->
+      </ul>
+      <h3>Answer Questions</h3>
+      <ul class="no_bullets">
+        <li><%= link_to 'Most Popular', :most_popular => true, :answer => true %></li>
+        <li><%= link_to 'Oldest', :oldest => true, :answer => true %></li>
+        <li><%= link_to 'Newest', :newest => true, :answer => true %></li>
+        <li><%= link_to 'Professional', :category => "Professional", :review => true %></li>
+        <li><%= link_to 'Social', :category => "Social", :review => true %></li>
+        <li><%= link_to 'Personal', :category => "Personal", :review => true %></li>
+        <!-- <li><%# link_to 'Minor', :importance => "Minor", :review => true %></li>
+        <li><%# link_to 'Moderate', :importance => "Moderate", :review => true %></li>
+        <li><%# link_to 'Mandatory', :importance => "Mandatory", :review => true %></li> -->
+      </ul>
+    </div>
+  </div>  
+</div>
+<div class="col profile-col2">
+  <div class="title">
+    Questions:
+  </div>
+  <div id="experience-list">
+    <% @questions.each do |question| %>
+      <%= render :partial => 'questions/question', :locals => { :existing_answer => question.answered(current_user.candidate), :question => question } %>
+    <% end %>
+  </div>
+</div>
+<div class="col profile-col3">
+  <div class="title">
+  </div>
+</div>

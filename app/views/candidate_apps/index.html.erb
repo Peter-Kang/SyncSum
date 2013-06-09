@@ -1,0 +1,26 @@
+<div class="col search-col1">
+  <div class="section group">                                        
+    <div class="content-container">
+      <div class="title">
+        <%= link_to "All Jobs", positions_path %><br/>
+        My Apps:
+        <%= link_to "Employers", employers_path %><br/>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col search-col2">
+  <h3>My Applications ( <%= @myApps.count %> )</h3>
+  <% if !@myApps %>
+    <p>No Applications.</p>
+  <% else %>
+    <% @myApps.each do |app| %>
+      <div class = "content-container">
+        <p>Title: <%= app.position.title %></p>
+        <p>Employer: <%= link_to app.position.employer.name ? app.position.employer.name : "Employer", user_path(app.position.employer.user) %>  </p>
+        <p> Submitted: <%= app.created_at.strftime("%Y-%m-%d") %>
+        <p style = "float:right;">Status: <%= app.candidate_app_status.name %> </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
