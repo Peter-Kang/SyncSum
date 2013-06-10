@@ -28,7 +28,7 @@ class Question < ActiveRecord::Base
     joins(:category).where("categories.name = ?", 'Social')
   end
 
-  def self.ethical
+  def self.peter
     joins(:category).where("categories.name = ?", 'Ethical')
   end
 

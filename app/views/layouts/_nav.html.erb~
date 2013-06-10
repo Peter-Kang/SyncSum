@@ -4,9 +4,9 @@
   <li><%= link_to "Questions", questions_path %></li>
   <li>
     <% if current_user.employer? %>
-      <%= link_to "Search", candidates_path %>
+      <%= link_to "SEARCH", candidates_path %>
     <% elsif current_user.candidate? %>
-      <%= link_to "Search", positions_path %>
+      <%= link_to "SEARCH", positions_path %>
     <% end %>
   </li>
 <!--   <li class="mobisettings"><a href="#">SETTINGS</a></li>

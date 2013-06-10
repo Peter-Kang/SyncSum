@@ -17,7 +17,7 @@ Category.destroy_all
 Category.create!([
 	{name: 'Professional'},
 	{name: 'Social'},
-	{name: 'Ethical'},
+	{name: 'Personal'},
 	{name: 'Skills'}
 ])
 CandidateAppStatus.destroy_all
