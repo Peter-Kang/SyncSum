@@ -1,0 +1,20 @@
+hr
+{
+    border-bottom: 1px solid #ccc;
+}
+
+@media (min-width: 768px) and (max-width: 979px)
+{
+	#content
+	{
+		margin-top:-5em;
+	}
+}
+
+@media (max-width: 767px)
+{
+	#mainPageText
+	{
+		display:none;
+	}
+}

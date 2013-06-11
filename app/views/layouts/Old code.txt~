@@ -1,0 +1,182 @@
+<!--
+Authentication.html.erb
+-->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sync Your Fact Sheet</title>
+    <%= stylesheet_link_tag "auth" %>
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin:400,700" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  
+  <body>
+    <div id="container">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+      
+      <div id="logo">
+        <p>Sync Sum Beta</p>
+      </div>
+      <%= yield %>
+    </div>
+    </script>
+  </body>
+</html>
+
+
+<!--Authentication.html.erb  (Rohan)
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		
+		<!-- Meta tags for storing metadata related to the website -->
+		<meta charset="utf-8" />
+		<meta name="description" content="SyncSum website" />
+		<meta name="author" content="Rohan Kothari" />
+		<meta name="keywords" content="SyncSum, Sync, Fact sheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Including Bootstrap and other stylesheets 
+
+		<link type="text/css" rel="stylesheet" href="./stylesheets/bootstrap.css.scss" />
+		<link type="text/css" rel="stylesheet" href="./stylesheets/bootstrap-responsive.css.scss" />
+		<link type="text/css" rel="stylesheet" href="./stylesheets/style.css.scss" />
+		-->
+		
+		<%= stylesheet_link_tag "bootstrap"%>
+		<%= stylesheet_link_tag "bootstrap-responsive"%>
+		<%= stylesheet_link_tag "style"%>
+		<!-- Including Bootstrap and other script files 
+		<script type="text/javascript" src="./javascripts/jquery-1.8.3.js.coffee"></script>
+		<script type="text/javascript" src="./javascripts/bootstrap.js.coffee"></script>
+		<script type="text/javascript" src="./javascripts/script.js.coffee"></script>
+		
+
+		
+		-->	
+		<!-- Title of the page -->
+		<title>Sync Your Fact Sheet</title>
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container" >
+					
+					<a class="brand" style="font-size:3em;" href="index.html">
+						<%= image_tag("sync.png",:size => "100x60") %>SyncSum
+					</a>
+					<div class="nav-collapse collapse" id="main-menu">
+
+						<form class="form-search" style="float:right; padding-right:10px; margin-bottom:0px;">
+							<input type="text" class="span2" style="margin-top:10px;" placeholder="Email">
+							<input type="text" class="span2" style="margin-top:10px;" placeholder="Password">
+							<button	class="btn btn-primary">Sign In</button>
+							<p><label class="checkbox" style="padding-top:10px; color:#ccc;"><input type="checkbox" value="remember"> Remember me</label></p>
+						</form>
+
+				
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<section id="content">
+			<div class="container" >
+				<div class="row">
+					<div id="mainPageText" class="span6" style=" margin-top:6.5em; padding-left:4em; ">
+						
+						<h1 style="font-size:40px;"><strong>Job matching. With personality.</strong></h1>
+						<br>
+						<h2 style="font-size:22px;"><%= image_tag("3.png", :style =>"width:2.5em; opacity:0.25" ) %> Connecting applicants and employers.</h2>
+						<h2 style="font-size:22px;"><%= image_tag("2.png", :style =>"width:2.5em; opacity:0.25" ) %> Test your skills. Measure career progress.</h2>
+						<h2 style="font-size:22px;"><%= image_tag("1.png", :style =>"width:2.5em; opacity:0.25" ) %> Easy. Smart. Logical.</h2>
+					</div>
+					<div class="hero-unit span3 pull-right" style="  margin-top:30px; ">
+						<h1 style="font-size:2em; padding-bottom:.3em">Sign up for free</h1>
+						<input type="text" class="span3" style="margin-top:10px;" placeholder="Username">
+						<input type="text" class="span3" style="margin-top:10px;" placeholder="Email">
+						<input type="text" class="span3" style="margin-top:10px;" placeholder="Password">
+						
+						<div id="signup-user-type" class="btn-group" data-toggle="buttons-radio" style="margin-top:10px;">
+							<button type="button" id="candidate-btn" class="btn account-type active" style="color:white;" onclick="candidateSelected()">New Candidate</button>
+							<button id="employer-btn" class="btn account-type" style="color:#555;" onclick="employerSelected()">New Employer</button>
+						</div>
+						
+						<br>
+						<button	class="btn btn-large btn-primary" style="margin-top:15px" >Sign Up</button>
+						<div><hr></div>
+						<h1 style="font-size:1.5em; padding-bottom:.75em">...or sign up with</h1>
+						<a href="https://accounts.google.com/AccountChooser?service=lso&continue=https%3A%2F%2Faccounts.google.com%2Fo%2Fopenid2%2Fauth%3Fzt%3DChRiM1hCalc5cmo3QkdFMjdwRDBKMxIfQXA2VVlFeWNLWVVZc2hRVjBpZVpEQXFPbmFabGZRSQ%25E2%2588%2599APsBz4gAAAAAUZY9PLfrCXzIYA_Oy9PG-G_ku8e45-S1%26from_login%3D1%26hl%3Den%26as%3D788f7a6382018abb&btmpl=authsub&hl=en"><%= image_tag("google_plus.png", :style =>"width:40px;" ) %></a>
+						<a href="https://api.twitter.com/oauth/authorize?oauth_token=rze7SvdtZLxaDgYOUNTWR2fbuDL5wLxi8wtDMILU"><%= image_tag("twitter.png", :style =>"width:40px;" ) %></a>
+						<a href="https://www.linkedin.com/uas/oauth/authorize?oauth_token=68880159-c813-4669-86da-ddf98855624f&state="><%= image_tag("linkedin.png", :style =>"width:40px;" ) %></a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
+
+
+
+
+			
+
+<!-- Sign_in.html.erb rohan-->
+<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container" >
+					
+					<a class="brand" style="font-size:3em;" href="index.html">
+						<%= image_tag("sync.png",:size => "100x60") %>SyncSum
+					</a>
+					<div class="nav-collapse collapse" id="main-menu">
+
+						<form class="form-search" style="float:right; padding-right:10px; margin-bottom:0px;">
+							<input type="text" class="span2" style="margin-top:10px;" placeholder="Email">
+							<input type="text" class="span2" style="margin-top:10px;" placeholder="Password">
+							<button	class="btn btn-primary">Sign In</button>
+							<p><label class="checkbox" style="padding-top:10px; color:#ccc;"><input type="checkbox" value="remember"> Remember me</label></p>
+						</form>
+
+				
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+<!-- sign_in.html.erb (old)-->
+<!--
+<h1>ALREADY A MEMBER?</h1>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "login" }) do |f| %>
+  <%= f.text_field :email, :placeholder => "Email" %>
+  <%= f.password_field :password, :placeholder => "Password" %>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <%= f.submit "Sign in", :class =>"button" %>
+  <%# link_to "Forgot your password?", new_password_path('user') %>
+<% end %>
+
+<%#= render "devise/shared/links" %>
+-->
+
+
+
+<!-- sign_up.html.erb (old)-->
+
+<!--
+<h1>CREATE A ACCOUNT!</h1>
+<div id="register">
+  <a href="#" class="button2" id="sign_up">Sign Up</a>
+</div>
+-->
+
+

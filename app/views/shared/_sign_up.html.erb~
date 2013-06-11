@@ -1,4 +1,5 @@
 <!--app/views/shared/_sign_up.html.erb-->
+<br>
 <%= javascript_include_tag "sign_up_script"%>
 		<section id="content">
 			<div class="container" >

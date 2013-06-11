@@ -10,7 +10,7 @@ app/views/layouts/application.html.erb
 
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "sign_in2.js"%>
+  <%= javascript_include_tag "sign_in2"%>
   
   <%= favicon_link_tag %>
   <%= csrf_meta_tag %>

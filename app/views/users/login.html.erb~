@@ -14,7 +14,7 @@ app/views/users/login.html.erb
 	<body>
 		<div id="container">
 			<div id="logo">
-				<p>Sync Sum woop Beta</p>
+				<p>Sync Sum Beta</p>
 			</div>
 			<% if flash[:notice] %>
 				<div id="notice"><%= flash[:notice]%></div>
