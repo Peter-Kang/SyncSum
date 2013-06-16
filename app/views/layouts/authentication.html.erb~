@@ -27,6 +27,7 @@
 				
 		-->	
 		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "sign_in2"%>
 		<!-- Title of the page -->
 
 		<title>Sync Your Fact Sheet</title>

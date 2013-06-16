@@ -1,0 +1,22 @@
+<%= form_for @candidate, :html => { :multipart => true, class: 'form' }, remote: true do |f| %>
+  <%= f.text_field :first_name, :placeholder => "First Name" %>
+  <%= f.text_field :last_name, :placeholder => "Last Name" %>
+
+  <%= f.label "Current employment status" %>
+  <%= f.select :employment_status, [['Employed','Employed'],['Unemployed','Unemployed'],['Underemployed','Underemployed']] %>
+
+  <%= f.label "Search Radius" %>
+  <%= f.select :search_radius, [[10,10],[25,25],[50,50],[75,75],[100,100],[200,200],[300,300],[400,400],[500,500]] %>
+
+  <%= f.fields_for :user do |u| %>
+    <%= render "users/location", :f => u %>
+
+    <%= f.label "Avatar" %>
+    <%= u.file_field :avatar %>
+  <% end %>
+
+  <%= f.label "Resume" %>
+  <%= f.file_field :resume %>
+
+  <%= f.submit "Update Profile" %> | <%= link_to 'Cancel', profile_path, id: 'edit-candidate-cancel' %>
+<% end %>

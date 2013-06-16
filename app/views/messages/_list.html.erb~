@@ -1,0 +1,16 @@
+<% @messages.each do |message| %>
+	<p>
+	  <b>Senderid:</b>
+	  <%= message.senderID %>
+	</p>
+
+	<p>
+	  <b>Content:</b>
+	  <%= message.content %>
+	</p>
+
+	<p>
+	  <b>Isread:</b>
+	  <%= message.isRead %>
+	</p>	
+<% end %>

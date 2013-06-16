@@ -18,8 +18,8 @@ app/views/shared/_sign_in.html.erb
 							
 					<% if devise_mapping.rememberable? -%>
 					    <div style="color:#ccc;">
-						<%= f.check_box :remember_me, :style => "float:left;" %></div>
-						<div><%= f.label :remember_me, :style => "float:left;" %></div>
+						<%= f.check_box :remember_me, :style => "float:left;" %>
+						<%= f.label :remember_me, :style => "float:left;" %></div>
 					  <% end -%>
 
 					<% end %>

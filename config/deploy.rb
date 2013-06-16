@@ -9,7 +9,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "https://github.com/SyncYour/SyncSum.git"
+set :repository, "https://SyncYour@github.com/SyncYour/SyncSum.git"
 set :branch, "master"
 
 default_run_options[:pty] = true

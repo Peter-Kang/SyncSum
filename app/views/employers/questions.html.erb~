@@ -1,0 +1,92 @@
+<div class="col profile-col1">
+  <div class="placeimg">
+    <%= image_tag(current_user.avatar.url(:thumb), :class => "avatar") %>
+  </div>
+  <div style="clear:both;"></div>
+  <div class="title">Compatibility Questions</div>
+  <div class="content-container">
+    You have prefered answers for <%= current_user.answered_questions.size %> questions.
+    <%= link_to 'Create a New Question', new_question_path if can?(:prefer, Question) %>
+  </div>
+  <div class="title">Sorting Links</div>
+  <div class="content-container">
+    <div class="link_container">
+      <h3>Review Questions</h3>
+      <ul class="no_bullets">
+        <li><%= link_to 'Oldest', :oldest => true, :review => true %></li>
+        <li><%= link_to 'Newest', :newest => true, :review => true %></li>
+        <li><%= link_to 'Professional', :category => "Professional", :review => true %></li>
+        <li><%= link_to 'Social', :category => "Social", :review => true %></li>
+        <li><%= link_to 'Ethical', :category => "Ethical", :review => true %></li>
+        <li><%= link_to 'Minor', :importance => "Minor", :review => true %></li>
+        <li><%= link_to 'Moderate', :importance => "Moderate", :review => true %></li>
+        <li><%= link_to 'Mandatory', :importance => "Mandatory", :review => true %></li>
+      </ul>
+      <h3>Find Questions</h3>
+      <ul class="no_bullets">
+        <li><%= link_to 'Most Popular', :most_popular => true, :answer => true %></li>
+        <li><%= link_to 'Oldest', :oldest => true, :answer => true %></li>
+        <li><%= link_to 'Newest', :newest => true, :answer => true %></li>
+        <li><%= link_to 'Professional', :category => "Professional", :answer => true %></li>
+        <li><%= link_to 'Social', :category => "Social", :answer => true %></li>
+        <li><%= link_to 'Ethical', :category => "Ethical", :answer => true %></li>
+      </ul>
+    </div>
+  </div>  
+</div>
+<div class="col profile-col2">
+  <div class="title">
+    Questions:
+  </div>
+  <div id="experience-list">
+    <%if @questions.each do |question| %>
+      <%= render :partial => 'questions/question', :locals => { :existing_answer => question.answered(current_user.employer), :question => question } %>
+    <% end.empty? %>
+	There are no questions.
+    <% end %>
+  </div>
+</div>
+<div class="col profile-col3">
+  <div class="title">
+  </div>
+</div>
+<!--
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="well inline pull-left" style="margin-left:.5em; width:250px; margin-top:80px; padding:2.5em;">
+					<h3 style="margin-top:-10px;">Find Questions</h3>
+					<div style="margin-left:1em;">
+						<p><a href="#" style="color:#555;">Most Popular</a></p>
+						<p><a href="#" style="color:#555;">Newest</a></p>
+						<p><a href="#" style="color:#555;">Oldest</a></p>
+					</div>
+					<h3>Review Questions</h3>
+					<div style="margin-left:1em;">
+						<p><a href="#" style="color:#555;">Most Popular</a></p>
+						<p><a href="#" style="color:#555;">Newest</a></p>
+						<p><a href="#" style="color:#555;">Oldest</a></p>
+					</div>
+					<hr>
+					<a href="#" style="font-size:125%">Create your own question</a>
+				</div>
+				
+				<div class="well inline" style="margin-left:26em; width:700px; height:16em; margin-top:80px; padding-left:3em; text-align:center;">
+					<a class="close">x</a>
+					<h3>How would you describe yourself?</h3>
+					<div class="container" style=" width:85%; ">
+						<button	class="btn span6" style="margin-left:0; margin-bottom:.5em">Healthy</button>
+						<button	class="btn span6" style="margin-left:0; margin-bottom:.5em">Brainless</button>
+						<button	class="btn span6" style="margin-left:0; margin-bottom:.5em">Reckless</button>
+						<button	class="btn span6" style="margin-left:0; margin-bottom:.5em;">Childish</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+-->

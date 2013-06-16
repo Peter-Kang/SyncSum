@@ -76,3 +76,15 @@ function cancelJob()
 	document.getElementById("cancelJob").style.display = "none";
 	document.getElementById("addJob").style.display = "block";
 }
+
+function editJobs(obj)
+{
+	document.getElementById("job"+obj).style.display = "none";
+	document.getElementById("jobform"+obj).style.display = "block";
+}
+
+function cancelJobEdit(obj)
+{
+	document.getElementById("job"+obj).style.display = "block";
+	document.getElementById("jobform"+obj).style.display = "none";
+}

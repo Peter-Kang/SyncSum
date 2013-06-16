@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sender:</b>
+  <%= @message.sender.username %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @message.content %>
+</p>
+
+<%= link_to 'Back', inbox_messages_path %>

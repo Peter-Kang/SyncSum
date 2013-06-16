@@ -29,24 +29,41 @@ class Question < ActiveRecord::Base
   end
 
   def self.ethical
-    joins(:category).where("categories.name = ?", 'Ethical')
+    joins(:category).where("categories.name = ?", 'Personal')
   end
+=begin
+  def self.most_popular
+    order("")
+  end
+
+  def how_many_answered
+    i = 0
+    Candidate.all do |cans|
+      if cans.answered_questions.index(sef)!=0
+	i+=1
+    end
+    return i
+  end
+=end
 
   def self.answered(user)
     answered_questions = user.answered_questions.collect { |question| question.id }
     Question.where(['id IN (?)', answered_questions])
   end
 
+=begin
   def self.most_popular
     joins(:answers).select("distinct(Questions.id), question, importance_id, employer_id, category_id, questions.created_at, questions.updated_at").sort { |a, b| a.answers.size <=> b.answers.size }
   end
+=end
+
 
   def self.unanswerred(user, skip_ids)
     answered_questions = user.answered_questions.collect { |question| question.id } - skip_ids
     Question.where(['id NOT IN (?)', answered_questions])
   end
 
-  def self.sort(newest, oldest, answer, review, category, importance, skip_ids, cu)
+  def self.sort(newest, oldest, answer, review, most_popular, category, importance, skip_ids, cu)
     if review
       if oldest
         answer = answered(cu).oldest
@@ -62,6 +79,8 @@ class Question < ActiveRecord::Base
         answer = unanswerred(cu, skip_ids).oldest
       elsif newest
         answer = unanswerred(cu, skip_ids).newest
+      elsif most_popular
+        answer = unanswerred(cu, skip_ids).most_popular
       elsif category
         answer = unanswerred(cu, skip_ids).where(:category_id =>category.id)
       end

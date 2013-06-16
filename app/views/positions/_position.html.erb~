@@ -1,0 +1,13 @@
+<div class="content-container">
+  <p class="job-title"><%= position.title %></p>
+  <p class="job-description"><%= position.description %></p>
+
+  <div class="job-requirements">
+    Degree requirement:
+    <%= position.minDegree ? Degree.find(position.minDegree).name : "No Min degree"  %> to
+    <%= position.maxDegree ? Degree.find(position.maxDegree).name : "No Max degree" %>
+    <br />
+    Experience desired:
+    <%= position.minExp %> to <%= position.maxExp %> years
+  </div>
+</div>

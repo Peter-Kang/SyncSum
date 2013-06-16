@@ -1,3 +1,4 @@
+/views/messages/_form.html.erb
 <%= form_for(@message) do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +14,7 @@
 
   <div class="field">
     <%= f.label :recipientID %><br />
-    <%= f.number_field :recipientID %>
+    <%= f.text_field :recipientID %>
   </div>
   <div class="field">
     <%= f.label :senderID %><br />

@@ -1,0 +1,53 @@
+<!--
+<div class="col search-col1">
+  <div class="section group">                                        
+    <div class="content-container">
+      <div class="title">
+       <%= link_to "All Jobs", positions_path %><br/>
+       <%= link_to "My Apps", candidate_apps_path %><br/>
+      Employers:
+      </div>
+      <%= search_form_for @search do |f| %>
+        <div class="col searchoptions-col2">
+          <%= f.label :name_cont, "Name contains: " %>
+          <%= f.text_field :name_cont, :class => "searchFieldBox" %>
+        </div>
+        <div class="col searchoptions-col3">
+          <%= f.label :company_size_gteq, "Min Company Size" %>
+          <%= f.select :company_size_gteq, Employer::SIZE_VALUES2, :include_blank => "Any Size" %><br/>
+          <%= f.label :company_size_lteq, "Max Company Size" %>
+          <%= f.select :company_size_lteq, Employer::SIZE_VALUES2, :include_blank => "Any Size" %>
+        </div>
+      
+        <div align="center">
+          <div class="actions" align="center">
+            <%= f.submit "Update" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>  
+
+<div class="col search-col2">
+  <h3>Employers ( <%= @employers.count %> )</h3>    
+  <%= render @employers %>
+</div>
+-->
+<!-- <%# if @employers.empty? %>
+  <p>No employers.</p>
+<%# else %>
+  <%# @employers.each do |employer| %>
+    <div style="border-style:solid; border-color: black; margin:2px;" >
+      <p><%# employer.name ? employer.name : "Emp Name" %></p>
+      <p><%# employer.tagline ? employer.tagline : "TagLine" %></p>
+      <p><%# employer.paid ? employer.paid : "Paid" %></p>
+
+      <%# if @myApps.include?(employer.id) %>
+        <%# button_to "Applied",{}, :disabled => true %>
+      <%# else %> 
+        <%#= button_to "Apply", {:controller=>:candidate_apps, :action=>:create, :employer_id => employer.id} %>
+      <%# end %>
+    </div>
+  <%# end %>
+<%# end %> -->

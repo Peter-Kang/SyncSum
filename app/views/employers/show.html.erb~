@@ -1,0 +1,117 @@
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="well inline pull-left" style="margin-left:.5em; width:250px; margin-top:80px; padding:2.5em;">
+					<div id="details">
+<%= form_for @current_user, :html => { :multipart => true, class: 'form' }, remote: true do |f| %>
+
+						<%= image_tag :avatar, :alt=>"Employer image"%>
+						<h3 style="margin-left:-20px;"><%="#{current_user.employer.name}"%></h3>
+						<address style="margin-left:-20px; margin-right:-20px;">
+							<i>"Our mission is to own all the examples in the world and be the biggest manufacturers of world class examples."</i><br><br>
+							<strong>Example Inc. buys, sell and builds examples while keeping the investors in mind.</strong>
+						</address>
+						<br>
+						<address style="margin-left:-20px; margin-right:-20px;">
+							<%= render "employers/postcard" %>
+						</address>
+					</div>
+					
+					<div id="editDetails" style="display:none;">
+						<%= image_tag "default.jpg", :alt=>"Employer image"%><br><br>
+						<input type="file" name="logo" accept="image/*">
+						<br><hr>
+
+						<input type="text" style="margin-left:-10px;" placeholder="Company Name" value="Example Name">
+						<textarea class="input-xlarge" rows="4" style="margin-left:-10px; width:14.65em" placeholder="Mission Statement" >Our mission is to own all the examples in the world and be the biggest manufacturers of world class examples.</textarea>
+						<textarea class="input-xlarge" rows="4" style="margin-left:-10px; width:14.65em" placeholder="Company Description" >Example Inc. buys, sell and builds examples while keeping the investors in mind.</textarea>
+						<br><hr>
+
+
+
+	<%= f.text_field :street, :placeholder=>"Street" %>
+	<%= f.text_field :city, :placeholder=> "City" %>
+<table>
+	<td><%= f.text_field :state, :placeholder=>"State", :maxlength=>"2", :style=>"width:3em" %></td>
+	<br>
+	<td><%= f.text_field :zip, :placeholder=>"Zipcode", :maxlength=>"5", :style=>"width:4em" %></td>
+</table>
+	<%= f.text_field :phone, :placeholder=>"Phone Number", :style=>"width:8em" %>
+	<%= f.text_field :email, :placeholder=>"Email" %>
+	<%= f.text_field :website, :placeholder=> "Website" %>
+	<%= f.submit "Save" %>
+	<button	class="btn btn-danger" style="margin-left:1em;" onmousedown="cancelEdit()">Close</button>
+<%end%>
+<%end%>
+<!-- , :class=>"btn btn-primary", :onclick=>"saveDetails()" -->
+
+
+					</div>
+
+					<button id="editButton" class="btn btn-primary" style="display:block; margin-left:auto; margin-right:auto; margin-bottom:-30px" onmousedown="editDetails()">Edit</button>
+
+
+					</div>
+					
+				
+				<div class="well inline" style="margin-left:26em; width:855px; margin-top:80px;">
+				
+					<h2 style="padding:1em;"><b>Job Postings </b><button id="addJob" class="btn btn-danger pull-right" style=" margin-top:1em; color:#fff;" onmousedown="addJob()"><b>Add Job +</b></button><button id="cancelJob" class="btn btn-danger pull-right" style=" margin-top:1em; color:#fff; display:none" onmousedown="cancelJob()"><b>Cancel -</b></button></h2>
+					<div id="jobPosting" style="display:none; margin-left:15em;">
+			<form accept-charset="UTF-8" action = "/positions" class="form" data-remote="true" id = "new_position" method = "post">
+						<table>
+							<tr>
+								<!--<div class="control-group">-->
+									<td><label for="position_title">Title:</label></td>
+									<td><input id="position_title" name="position[title]"></td>
+									<br></br>
+								<!--</div>-->
+								
+							</tr>
+							<tr>
+								<td>Minimum level of education: </td>
+								<td>
+									<%= select(:position, :minDegree,Degree.all.collect{|p|[p.name, p.id]}, :class => "span2" )%>
+								</td>
+							</tr>
+							<tr>
+								<td>Maximum level of education: </td>
+								<td>
+									<%= select(:position, :maxDegree,Degree.all.collect{|p|[p.name, p.id]}, :class => "span2")%>
+								</td>
+							</tr>
+							<tr>
+								<td>Certifications Desired: </td>
+								<td><%= text_field_tag 'Certification'%></td>
+							</tr>
+							<tr>
+								<td>Minimum Experience Desired </td>
+								<td><input id="position_minExp" name="position[minExp]" placeholder="Min" size="27" type="text"><td>
+							</tr>
+							<tr>
+								<td>Maximum Experience Desired</td>
+								<td><input id="position_maxExp" name="position[maxExp]" placeholder="Max" size="27" type="text"></td>
+							</tr>
+							<tr>
+								<td>Description: </td>
+								<td>
+								<textarea cols="27" id="position_description" name="position[description]" rows="4"></textarea>
+								</td>
+							</tr>
+						</table>
+
+						<br>
+						<button	class="btn btn-primary" onmousedown="saveJob()" name= "commit" type = "submit">Add</button>
+						<button	class="btn btn-danger" style="margin-left:1em;" onmousedown="cancelJob()">Cancel</button>
+						</form>
+					</div>
+					<% if !@positions %>
+					      (Currently none)
+					<% else %>
+					      <div id = "position-list">
+						<%= render @positions %>
+					      </div>
+					<% end %>
+				</div>
+			</div>
+		</div>

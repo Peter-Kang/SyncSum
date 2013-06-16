@@ -21,8 +21,10 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
-    @message = Message.find(params[:id])
+    if params[:id]!="dashboard"
+    @message = Message.find(params[:id])  
 	@message.update_attribute(:isRead, true)
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @message }
@@ -50,7 +52,7 @@ class MessagesController < ApplicationController
   def create
 
     @message = Message.new(params[:message])
-	@message.recipientID = User.where("username = ?", params[:recipientUsername]).first.id
+	@message.recipientID = User.where("username = ?", params[:recipientID]).name
 	
 	
     respond_to do |format|
@@ -91,8 +93,8 @@ class MessagesController < ApplicationController
   end
   
   def inbox
-	@messages = Message.where(:recipientID => current_user.id)
-	@unRead = Message.where(:recipientID => current_user.id, :isRead => false)
+	@messages = Message.where(:recipientID => current_user.email)
+	@unRead = Message.where(:recipientID => current_user.email, :isRead => false)
   end
   def compose
 	@message = Message.new

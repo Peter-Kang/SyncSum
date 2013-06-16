@@ -1,7 +1,13 @@
+<!--/views/layouts/_nav.html.erb-->
+
+
+
+
+
 <ul class="menu">
   <li><%= link_to "Dashboard", dashboard_path %></li>
   <li><%= link_to "Profile", profile_path %></li>
-  <li><%= link_to "Boobies", questions_path %></li>
+  <li><%= link_to "Question", questions_path %></li>
   <li>
     <% if current_user.employer? %>
       <%= link_to "Search", candidates_path %>
@@ -9,7 +15,8 @@
       <%= link_to "Search", positions_path %>
     <% end %>
   </li>
-<!--   <li class="mobisettings"><a href="#">SETTINGS</a></li>
+<!--   <li class="mobisettings"><a href="#">Settings</a></li>
   <li class="mobisettings"><a href="#">RESUME GENERATOR</a></li> -->
   <li class="mobisettings"><a href="#">LOG OUT</a></li>
 </ul>
+

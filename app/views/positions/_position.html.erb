@@ -1,3 +1,4 @@
+<!--
 <div class="content-container">
   <p class="job-title"><%= position.title %></p>
   <p class="job-description"><%= position.description %></p>
@@ -11,3 +12,98 @@
     <%= position.minExp %> to <%= position.maxExp %> years
   </div>
 </div>
+
+-->
+
+<hr style="margin-left:26.5em; width:750px; padding-left:3em;">
+				<div class="well inline" style="margin-left:26em; width:750px; padding-left:3em;">
+					<a class="close" title="Delete">x</a>
+					<i class="close icon-pencil" style="margin-top:.25em; margin-right:.3em;" title="Edit" onmousedown="editJobs(1)"></i>
+					<div class="accordian" id="searchAccordian">
+						<div class="accordian-group">
+							<div class="accordian-heading">
+								<a class="accordian-toggle pull-left" data-toggle="collapse" data-parent="#searchAccordian" href="#second" style="text-decoration:none; width:95%">
+									<h3 class="inline pull-left" style="font-size:160%">Job Title #1</h3>
+								</a>
+								<br>
+							</div>
+							
+							<div class="accordian-body collapse" id="second" style="margin-left: 10em; left: -10em; margin-right: 10em; width: 100%;">
+								<div class="accordian-inner">
+									<div id="job1">
+										<div class="row">
+											<div class="span4">
+												<p><strong>Experience:</strong> 3 to 5 years</p>
+												<p><strong>Fields Desired:</strong> Computer Science, Information Technology, Software Engineering</p>
+											</div>
+											<div class="span3">
+												<p><strong>Minimum level of education required:</strong> BS</p>
+												<p><strong>Maximum level of education required:</strong> MS</p>
+											</div>
+										</div>
+										<p><strong>Skills Required:</strong></p>
+										<p>HTML, CSS, JavaScript, PHP, Ruby on Rails, Python</p>
+										<p><strong>Description:</strong></p>
+										<p>Bacon ipsum dolor sit amet capicola non ham leberkas irure. Nostrud exercitation consequat non meatloaf bacon brisket doner enim cow leberkas aliqua shoulder fugiat pork belly. Pork loin kielbasa id ullamco pancetta turkey. In doner meatball ut, minim esse velit. Duis prosciutto ham nostrud proident short loin. Venison cillum strip steak pancetta ullamco tongue, tri-tip tempor leberkas ex elit flank hamburger.</p>
+									</div>
+									<div id="jobform1" style="display:none; margin-left:15em;">
+										<table>
+											<tr>
+												<div class="control-group">
+													<td>Title: </td>
+													<td><input type="text" value="Job Title #1"></td>
+												</div>
+											</tr>
+											<tr>
+												<td>Minimum level of education: </td>
+												<td>
+													<select id="degree" class="span2">
+														<option></option>
+														<option>High School</option>
+														<option>Bachelor</option>
+														<option>Master</option>
+														<option>PhD</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td>Maximum level of education: </td>
+												<td>
+													<select id="degree" class="span2">
+														<option></option>
+														<option>High School</option>
+														<option>Bachelor</option>
+														<option>Master</option>
+														<option>PhD</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td>Certifications Desired: </td>
+												<td><input class="span2" maxlength="4" type="text" value="No Idea"></td>
+											</tr>
+											<tr>
+												<td>Minimum Experience Desired:</td>
+												<td><input class="span1" maxlength="4" type="text" value="3"></td>
+											</tr>
+											<tr>
+												<td>Maximum Experience Desired:</td>
+												<td><input class="span1" maxlength="4" type="text" value="5"></td>
+											</tr>
+											<tr>
+												<td>Description: </td>
+												<td>
+													<textarea class="input-xlarge" rows="4" style="width:20em">Bacon ipsum dolor sit amet capicola non ham leberkas irure. Nostrud exercitation consequat non meatloaf bacon brisket doner enim cow leberkas aliqua shoulder fugiat pork belly. Pork loin kielbasa id ullamco pancetta turkey. In doner meatball ut, minim esse velit. Duis prosciutto ham nostrud proident short loin. Venison cillum strip steak pancetta ullamco tongue, tri-tip tempor leberkas ex elit flank hamburger.</textarea>
+												</td>
+											</tr>
+										</table>
+										<br>
+										<button	class="btn btn-primary" onmousedown="saveJob()">Save</button>
+										<button	class="btn btn-danger" style="margin-left:1em;" onmousedown="cancelJobEdit(1)">Cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				

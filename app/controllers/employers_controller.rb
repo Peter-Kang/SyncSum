@@ -5,6 +5,12 @@ class EmployersController < ApplicationController
     @employers = @search.result
   end
 
+  def edit
+    @employers= Employer.find(params[:id])
+
+    render partial: 'vitals_form' if request.xhr?
+  end
+
   def new
     @employer = Employer.new
     @employer.build_user

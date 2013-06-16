@@ -1,0 +1,44 @@
+/views/messages/index.html.erb
+<% content_for :title do %>
+SyncYourFactSheet (<%= @unRead.count %>)
+<% end %>
+<% content_for :leftContent do %>
+	<br/><br/>
+	<strong> Inbox ( <%= @unRead.count %> ) </strong> <br/><br/>
+<% end %>
+
+<% if flash[:notice] %>
+   <div class="notice"><%= flash[:notice] %></div>
+<% end %><br/>
+
+<h3>Inbox</h3>
+
+<table>
+  <tr>
+    <th>Senderid</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @messages.each do |message| %>
+  <tr>
+    <td>
+	<% if !message.isRead %> <strong> <% end %>
+	<%= message.sender.username %>&nbsp&nbsp&nbsp
+	<% if !message.isRead %> </strong> <% end %>
+	</td>
+    <td>
+	<% if !message.isRead %> <strong> <% end %>
+	<%= message.content %>&nbsp&nbsp&nbsp
+	<% if !message.isRead %> </strong> <% end %>
+	</td>
+    <td><%= link_to "Display", message %>&nbsp&nbsp&nbsp</td>
+    <td><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Message', compose_messages_path %>
