@@ -9,11 +9,15 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "https://pxk7062@github.com/SyncYour/SyncSum.git"
+set :repository, "git@github.com:SyncYour/SyncSum.git"
 set :branch, "master"
+set :git_shallow_clone, 1
+
+
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+set :ssh_options, {:forward_agent=> true}
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
