@@ -4,8 +4,6 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
-#Ignore Gemfile because it would require sqlite3
-/.Gemfile
 
 # Ignore bundler config
 /.bundle
