@@ -16,6 +16,8 @@ gem 'ransack'
 gem 'devise'
 gem 'cancan'
 
+gem 'sqlite3'
+
 gem 'neat'
 gem 'will_paginate'
 
