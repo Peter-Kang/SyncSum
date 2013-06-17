@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 #Ignore Gemfile because it would require sqlite3
-/Gemfile
+/.Gemfile
 
 # Ignore bundler config
 /.bundle
