@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem 'railroady'
 gem 'capistrano'
 
 gem 'thin'
@@ -14,6 +15,7 @@ gem 'ransack'
 
 gem 'devise'
 gem 'cancan'
+
 
 gem 'neat'
 gem 'will_paginate'
