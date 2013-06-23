@@ -222,7 +222,7 @@ Question.create([
 	{ 
 		:question => "What is Rails?",
 		:importance_id => Importance.all.sample.id,
-		:category_id => Category,
+		:category_id => Category.all.sample.id,
 		:employer_id => employer.employer.id,
 		:answers_attributes =>
 		[
@@ -230,9 +230,203 @@ Question.create([
 			{:answer => "Application"},
 			{:answer => "Some code"},
 			{:answer => "Language"}
-    		]
-  	}
- 
+    ]
+  },
+  { 
+		:question => "What is Java?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "Language"},
+			{:answer => "Company"},
+			{:answer => "An Executable"},
+			{:answer => "a Process"}
+    ]
+  },
+  { 
+		:question => "How does Java implement multiple inheritance?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "using the implements key word"},
+			{:answer => "Multiple \"extends\" calls"},
+			{:answer => "Using a wrench"},
+			{:answer => "they just do it"}
+    ]
+  },
+  { 
+		:question => "How do you define a method in ruby?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "the \"def\" keyword"},
+			{:answer => "the \"do\" keyword",},
+			{:answer => "saying the phrase: method"},
+			{:answer => "doing stuff"}
+    ]
+  },
+  { 
+		:question => "Another question?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "Framework"},
+			{:answer => "Application"},
+			{:answer => "Some code"},
+			{:answer => "Language"}
+    ]
+  },
+  { 
+		:question => "More sample questions?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "Language"},
+			{:answer => "Company"},
+			{:answer => "An Executable"},
+			{:answer => "a Process"}
+    ]
+  },
+  { 
+		:question => "seeding questions?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "using the implements key word"},
+			{:answer => "Multiple \"extends\" calls"},
+			{:answer => "Using a wrench"},
+			{:answer => "they just do it"}
+    ]
+  },
+  { 
+		:question => "even more seeding of questions?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "the \"def\" keyword"},
+			{:answer => "the \"do\" keyword",},
+			{:answer => "saying the phrase: method"},
+			{:answer => "doing stuff"}
+    ]
+  },
+  { 
+		:question => "just going to continue to seed some questions?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "Framework"},
+			{:answer => "Application"},
+			{:answer => "Some code"},
+			{:answer => "Language"}
+    ]
+  },
+  { 
+		:question => "whats another seeded question?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "Language"},
+			{:answer => "Company"},
+			{:answer => "An Executable"},
+			{:answer => "a Process"}
+    ]
+  },
+  { 
+		:question => "How does Java implement multiple inheritance, with seeding?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "using the implements key word"},
+			{:answer => "Multiple \"extends\" calls"},
+			{:answer => "Using a wrench"},
+			{:answer => "they just do it"}
+    ]
+  },
+  { 
+		:question => "How do you define a method in ruby, while seeding data?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "the \"def\" keyword"},
+			{:answer => "the \"do\" keyword",},
+			{:answer => "saying the phrase: method"},
+			{:answer => "doing stuff"}
+    ]
+  },
+  { 
+		:question => "hey stop seeding over there?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "Framework"},
+			{:answer => "Application"},
+			{:answer => "Some code"},
+			{:answer => "Language"}
+    ]
+  },
+  { 
+		:question => "all of these questions are seeded?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "Language"},
+			{:answer => "Company"},
+			{:answer => "An Executable"},
+			{:answer => "a Process"}
+    ]
+  },
+  { 
+		:question => "Create a question because this one is seeded?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "using the implements key word"},
+			{:answer => "Multiple \"extends\" calls"},
+			{:answer => "Using a wrench"},
+			{:answer => "they just do it"}
+    ]
+  },
+  { 
+		:question => "continue to seed data?",
+		:importance_id => Importance.all.sample.id,
+		:category_id => Category.all.sample.id,
+		:employer_id => employer.employer.id,
+		:answers_attributes =>
+		[
+			{:answer => "the \"def\" keyword"},
+			{:answer => "the \"do\" keyword",},
+			{:answer => "saying the phrase: method"},
+			{:answer => "doing stuff"}
+    ]
+  }
 ])
 
 candidate.candidate.add_answer(Question.first.answers.first)

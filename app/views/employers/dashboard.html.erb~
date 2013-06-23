@@ -1,3 +1,11 @@
+<
+
+
+
+
+
+
+ Date: Jun 22 2013, old code
 /views/employers/dashboard.html.erb
 <div class="col profile-col1">
   <div class="placeimg"><%= image_tag(current_user.avatar.url(:thumb), :class => "avatar") %></div>
@@ -7,7 +15,7 @@
     Welcome back
   </div>
   <div class="content-container">
-    <%= link_to "Inbox", messages_path %> ( <%= @unRead.count %> )
+    <%= link_to "Inbox", inbox_messages_path %> ( <%= @unRead.count %> )
   </div>
   
   <% if current_user.isAdmin %>
@@ -41,3 +49,4 @@
     <%= render :partial => "candidates/list" %> 
   </div>
 </div>
+

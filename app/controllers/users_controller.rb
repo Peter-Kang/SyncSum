@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @user = params[:id].nil? ? current_user : User.find(params[:id])
-    @unRead = Message.where(:recipientID => current_user.id, :isRead => false)
+    @unRead = Message.where(:recipientID => current_user.email, :isRead => false)
+
 
     if @user.candidate?
       @candidate   = @user.candidate
@@ -65,7 +66,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @messages = Message.where(:recipientID => current_user.id)
-    @unRead = Message.where(:recipientID => current_user.id, :isRead => false)
+    @unRead = Message.where(:recipientID => current_user.email, :isRead => false)
     session[:skip_question_ids] ||= []
     session[:skip_question_ids] << params[:skip_question_id] if params[:skip_question_id].present?
     @questions = Question.unanswerred(current_user, session[:skip_question_ids]).sample(3)

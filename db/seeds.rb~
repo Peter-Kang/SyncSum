@@ -17,7 +17,7 @@ Category.destroy_all
 Category.create!([
 	{name: 'Professional'},
 	{name: 'Social'},
-	{name: 'Ethical'},
+	{name: 'Personal'},
 	{name: 'Skills'}
 ])
 CandidateAppStatus.destroy_all
@@ -222,7 +222,7 @@ Question.create([
 	{ 
 		:question => "What is Rails?",
 		:importance_id => Importance.all.sample.id,
-		:category_id => Category,
+		:category_id => Category.all.sample.id,
 		:employer_id => employer.employer.id,
 		:answers_attributes =>
 		[

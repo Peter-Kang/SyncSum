@@ -3,9 +3,9 @@ class QuestionsController < ApplicationController
   skip_authorize_resource :only => [ :answer, :answers, :answer_question, :update_answer ]
 
   def index
-    @questions = Question.sort(params[:newest], params[:oldest], params[:answer], params[:review], params[:most_popular], Category.find_by_name(params[:category]), Importance.find_by_level(params[:importance]), session[:skip_question_ids], current_user)#.paginate(:page => params[:page], :per_page => 4)
+    @questions = Question.sortby(params[:newest], params[:oldest], params[:answer], params[:review], params[:most_popular],Category.find_by_name(params[:category]), Importance.find_by_level(params[:importance]), session[:skip_question_ids], current_user)#.paginate(:page => params[:page], :per_page => 4)
 
-    #@professional, @social, @personal = [], [], []  params[:newest],
+    #@professional, @social, @personal = [], [], []
 
     # 3.times do |i| 
     #   @professional << Question.professional.sample
@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
 
   def new
     unauthorized! if cannot? :prefer, @question
-    5.times { @question.answers.build }
+    4.times { @question.answers.build }
   end
 
   def edit

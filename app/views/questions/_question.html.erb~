@@ -6,9 +6,8 @@ questions/_question.html.erb
     <%= link_to 'x', dashboard_path(:skip_question_id => question.id), :class => 'skip' %>
     <div class="question">
       <%= form_tag answer_this_question_path(question), :method => method do %>
-        <p><%= question.question %></p>
+        <p><%= question.question, question.amount_of_candidates %></p>
         <% question.answers.shuffle.each do |answer| %>
-		boobies
           <div class="answer">
             <label for="answer-<%= answer.id %>"><%= answer.answer %></label>
             <%= radio_button_tag 'answer_id', answer.id, existing_answer == answer, :id => "answer-#{answer.id}" %> 

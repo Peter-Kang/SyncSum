@@ -1,3 +1,448 @@
+<br>
+		<!-- Content after the navigation bar -->
+		<div class="navmargin" style="margin-top:80px;"></div>
+		<div class="container">
+			<div class="row">
+				<!-- User details card -->
+				<div class="well span3" style="margin-left:.5em; padding:2em; padding-top:1.5em;">
+					<div id="details">
+						<h3><strong><%="Welcome back"%></strong></h3>
+						<h4><strong><%="#{@current_user.employer.name}"%></strong></h4>
+						<%= image_tag @current_user.avatar.url :style=>":display=>block, :margin-left=>auto, :margin-right=>auto"%>
+						<!--<img src="./img/default.jpg" alt="Employer image" style="display:block; margin-left:auto; margin-right:auto;">-->
+						<hr>
+						<%= link_to "Inbox", inbox_messages_path, :style=>":color=>#555 :font-size=>110%" %>( <%= @unRead.count  %> )</a><br>
+						<a href="#" style="color:#555; font-size:110%" onmousedown="dashboard_candidates()">Suggested Candidates</a><br>
+						<a href="#" style="color:#555; font-size:110%" onmousedown="dashboard_questions()">Your Questions</a><br>
+					</div>
+				</div>
+				<!-- Candidates list -->
+				<div id="candidates" class="span8">
+					<!-- Candidate #1 -->
+					<div class="well" style="width:750px; padding-top:.55em; padding-left:3em;">
+						<a class="close" title="Remove this candidate">x</a>
+						<!-- Accordian begins -->
+						<div class="accordian" id="searchAccordian">
+							<div class="accordian-group">
+								<!-- Candidate #1 accordian header -->
+								<div class="accordian-heading">
+									<a class="accordian-toggle pull-left" data-toggle="collapse" data-parent="#searchAccordian" href="#first" style="text-decoration:none;">
+										<table>
+											<tr>
+												<!-- Candidate name and title with company name -->
+												<td style="width:18em;">
+												<h3 style="font-size:160%">Joe Somebody</h3>
+												<p style="color:#555; margin-top:-1em;">Vice President at Example & Sons Inc.</p>
+												</td>
+												<!-- Candidate matching -->
+												<td style="width:20.5em; padding-top:1em;">
+													<div class="span2" title="Professional Match - 85%">
+														<span style="color:#555">P</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 85%; background-color:#cf0000"></div>
+														</div>
+													</div>
+													<div class="span2" title="Social Match - 90%">
+														<span style="color:#555">S</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 90%; background-color:#cf0000"></div>
+														</div>
+													</div>
+													<div class="span2" title="Ethical Match - 89%">
+														<span style="color:#555">E</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 83%; background-color:#cf0000"></div>
+														</div>
+													</div>
+												</td>
+												<!-- Candidate job match -->
+												<td><h3 style="font-size:125%; padding-top:.75em">Job Match: 89%</h3></td>
+											</tr>
+										</table>
+									</a>
+								</div>
+								<!-- Candidate #1 accordian contents -->
+								<div class="accordian-body collapse" id="first" style="margin-left:10em; left:-10em; margin-right:10em; width:100%; ">
+									<div class="accordian-inner">
+										<div class="row">
+											<hr>
+											<!-- Row 1 -->
+											<div class="span2" style="width:35%">
+												<p>Buffalo, NY (83mi)</p>
+												<p>B.A. in Political Sciences,<br>Roma U., 88bce</p>
+												<p>M.A. in Bronze-Age, Balkan Military Tactics,<br>Roma U., 83bce.</p>
+											</div>
+											<!-- Row 2 -->
+											<div class="span2" style="width:33%">
+												<strong>Functions: </strong>
+												<p>Executive - 44.5yrs<br>Management - 28.3yrs</p>
+												
+												<strong>Sectors:</strong>
+												<p>Public - 28.3yrs<br>Cultural - 50.2yrs</p>											
+											</div>
+											<!-- Row 3 -->
+											<div class="span2" style="width:20%">
+												<strong>Lacks experience:</strong>
+												<p>Operational<br>Math-related</p>
+												
+												<p><strong>Employed: </strong> 5.3yrs</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Candidate #2 -->
+					<div class="well" style="width:750px; padding-top:.55em; padding-left:3em;">
+						<a class="close" title="Remove this candidate">x</a>
+						<!-- Accordian begins -->
+						<div class="accordian" id="searchAccordian">
+							<div class="accordian-group">
+								<!-- Candidate #2 accordian header -->
+								<div class="accordian-heading">
+									<a class="accordian-toggle pull-left" data-toggle="collapse" data-parent="#searchAccordian" href="#second" style="text-decoration:none;">
+										<table>
+											<tr>
+												<!-- Candidate name and title with company name -->
+												<td style="width:18em;">
+													<h3 style="font-size:160%">Julius Caesar</h3>
+													<p style="color:#555; margin-top:-1em;">CEO at Example Corp.</p>
+												</td>
+												<!-- Candidate matching -->
+												<td style="width:20.5em; padding-top:1em;">
+													<div class="span2" title="Professional Match - 83%">
+													<span style="color:#555">P</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+														<div class="bar" style="width: 83%; background-color:#cf0000"></div>
+													  </div>
+													</div>
+													<div class="span2" title="Social Match - 82%">
+													<span style="color:#555">S</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+														<div class="bar" style="width: 82%; background-color:#cf0000"></div>
+													  </div>
+													</div>
+													<div class="span2" title="Ethical Match - 79%">
+													<span style="color:#555">E</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+														<div class="bar" style="width: 79%; background-color:#cf0000"></div>
+													  </div>
+													</div>
+												</td>
+												<!-- Candidate job match -->
+												<td><h3 style="font-size:125%">Job Match: 85%</h3></td>
+											</tr>
+										</table>
+									</a>
+								</div>
+								<!-- Candidate #2 accordian contents -->
+								<div class="accordian-body collapse" id="second" style="margin-left: 10em; left: -10em; margin-right: 10em; width: 100%;">
+									<div class="accordian-inner">
+										<div class="row">
+											<hr>
+											<!-- Row 1 -->
+											<div class="span2" style="width:35%">
+												<p>Syracuse, NY (45mi)</p>
+												<p>B.A. in Political Sciences,<br>Roma U., 88bce</p>
+												<p>M.A. in Bronze-Age, Balkan Military Tactics,<br>Roma U., 83bce.</p>
+											</div>
+											<!-- Row 2 -->
+											<div class="span2" style="width:33%">
+												<strong>Functions: </strong>
+												<p>Executive - 34.5yrs<br>Management - 18.3yrs</p>
+												
+												<strong>Sectors:</strong>
+												<p>Public - 18.3yrs<br>Cultural - 40.2yrs</p>											
+											</div>
+											<!-- Row 3 -->
+											<div class="span2" style="width:20%">
+												<strong>Lacks experience:</strong>
+												<p>Operational<br>Math-related</p>
+												
+												<p><strong>Employed: </strong> 5.3yrs</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Candidate #3 -->
+					<div class="well" style="width:750px; padding-top:.55em; padding-left:3em;">
+						<a class="close" title="Remove this candidate">x</a>
+						<!-- Accordian begins -->
+						<div class="accordian" id="searchAccordian">
+							<div class="accordian-group">
+								<!-- Candidate #3 accordian header -->
+								<div class="accordian-heading">
+									<a class="accordian-toggle pull-left" data-toggle="collapse" data-parent="#searchAccordian" href="#third" style="text-decoration:none;">
+										<table>
+											<tr>
+												<!-- Candidate name and title with company name -->
+												<td style="width:18em;">
+													<h3 style="font-size:160%">Brutus Smith</h3>
+													<p style="color:#555; margin-top:-1em;">General Manager at Example Bros.</p>
+												</td>
+												<!-- Candidate matching -->
+												<td style="width:20.25em;">
+													<div class="span2" title="Professional Match - 78%">
+														<span style="color:#555">P</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 78%; background-color:#cf0000"></div>
+														</div>
+													</div>
+													<div class="span2" title="Social Match - 91%">
+														<span style="color:#555">S</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 91%; background-color:#cf0000"></div>
+														</div>
+													</div>
+													<div class="span2" title="Ethical Match - 89%">
+														<span style="color:#555">E</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 89%; background-color:#cf0000"></div>
+														</div>
+													</div>
+												</td>
+												<!-- Candidate job match -->
+												<td><h3 style="font-size:125%">Job Match: 85%</h3></td>
+											</tr>
+										</table>
+									</a>
+								</div>
+								<!-- Candidate #3 accordian contents -->
+								<div class="accordian-body collapse" id="third" style="margin-left: 10em; left: -10em; margin-right: 10em; width: 100%;">
+									<div class="accordian-inner">
+										<div class="row">
+											<hr>
+											<!-- Row 1 -->
+											<div class="span2" style="width:35%">
+												<p>Rochester, NY (40mi)</p>
+												<p>B.A. in Political Sciences,<br>Roma U., 88bce</p>
+												<p>M.A. in Bronze-Age, Balkan Military Tactics,<br>Roma U., 83bce.</p>
+											</div>
+											<!-- Row 2 -->
+											<div class="span2" style="width:33%">
+												<strong>Functions: </strong>
+												<p>Executive - 34.5yrs<br>Management - 18.3yrs</p>
+												
+												<strong>Sectors:</strong>
+												<p>Public - 18.3yrs<br>Cultural - 40.2yrs</p>								
+											</div>
+											<!-- Row 3 -->
+											<div class="span2" style="width:20%">
+												<strong>Lacks experience:</strong>
+												<p>Operational<br>Math-related</p>
+												
+												<p><strong>Employed: </strong> 5.3yrs</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Candidate #4 -->
+					<div class="well" style="width:750px; padding-top:.55em; padding-left:3em;">
+						<a class="close" title="Remove this candidate">x</a>
+						<!-- Accordian begins -->
+						<div class="accordian" id="searchAccordian">
+							<div class="accordian-group">
+							<!-- Candidate #4 accordian header -->
+								<div class="accordian-heading">
+									<a class="accordian-toggle pull-left" data-toggle="collapse" data-parent="#searchAccordian" href="#fourth" style="text-decoration:none;">
+										<table>
+											<tr>
+												<!-- Candidate name and title with company name -->
+												<td style="width:18em;">
+													<h3 style="font-size:160%">Jane Stately</h3>
+													<p style="color:#555; margin-top:-1em;">Sr. Manager at Examples &amp; Examples</p>
+												</td>
+												<!-- Candidate matching -->
+												<td style="width:20.25em;">
+													<div class="span2" title="Professional Match - 80%">
+														<span style="color:#555">P</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 80%; background-color:#cf0000"></div>
+														</div>
+													</div>
+													<div class="span2" title="Social Match - 76%">
+														<span style="color:#555">S</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 76%; background-color:#cf0000"></div>
+														</div>
+													</div>
+													<div class="span2" title="Ethical Match - 81%">
+														<span style="color:#555">E</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 89%; background-color:#cf0000"></div>
+														</div>
+													</div>
+												</td>
+												<!-- Candidate job match -->
+												<td><h3 style="font-size:125%">Job Match: 84%</h3></td>
+											</tr>
+										</table>
+									</a>
+								</div>
+								<!-- Candidate #4 accordian contents -->
+								<div class="accordian-body collapse" id="fourth" style="margin-left: 10em; left: -10em; margin-right: 10em; width: 100%;">
+									<div class="accordian-inner">
+										<div class="row">
+											<hr>
+											<!-- Row 1 -->
+											<div class="span2" style="width:35%">
+												<p>Albany, NY (67mi)</p>
+												<p>B.A. in Political Sciences,<br>Roma U., 88bce</p>
+												<p>M.A. in Bronze-Age, Balkan Military Tactics,<br>Roma U., 83bce.</p>
+											</div>
+											<!-- Row 2 -->
+											<div class="span2" style="width:33%">
+												<strong>Functions: </strong>
+												<p>Executive - 34.5yrs<br>Management - 18.3yrs</p>
+												
+												<strong>Sectors:</strong>
+												<p>Public - 18.3yrs<br>Cultural - 40.2yrs</p>											
+											</div>
+											<!-- Row 3 -->
+											<div class="span2" style="width:20%">
+												<strong>Lacks experience:</strong>
+												<p>Operational<br>Math-related</p>
+												
+												<p><strong>Employed: </strong> 5.3yrs</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Candidate #5 -->
+					<div class="well" style="width:750px; padding-top:.55em; padding-left:3em;">
+						<a class="close" title="Remove this candidate">x</a>
+						<!-- Accordian begins -->
+						<div class="accordian" id="searchAccordian">
+							<div class="accordian-group">
+								<!-- Candidate #5 accordian header -->
+								<div class="accordian-heading">
+									<a class="accordian-toggle pull-left" data-toggle="collapse" data-parent="#searchAccordian" href="#fifth" style="text-decoration:none;">
+										<table>
+											<tr>
+												<!-- Candidate name and title with company name -->
+												<td style="width:18em;">
+													<h3 style="font-size:160%">Frank LySpeaking</h3>
+													<p style="color:#555; margin-top:-1em;">Janitor at Examples High School</p>
+												</td>
+												<!-- Candidate matching -->
+												<td style="width:20.25em;">
+													<div class="span2" title="Professional Match - 67%">
+														<span style="color:#555">P</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 67%; background-color:#cf0000"></div>
+														</div>
+													</div>
+													<div class="span2" title="Social Match - 99%">
+														<span style="color:#555">S</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 99%; background-color:#cf0000"></div>
+														</div>
+													</div>
+													<div class="span2" title="Ethical Match - 80%">
+														<span style="color:#555">E</span>
+														<div class="progress pull-right" style="background-color:#dadada; margin-top:.5em; margin-bottom:.5em; width:90%">
+															<div class="bar" style="width: 80%; background-color:#cf0000"></div>
+														</div>
+													</div>
+												</td>
+												<!-- Candidate job match -->
+												<td><h3 style="font-size:125%">Job Match: 81%</h3></td>
+											</tr>
+										</table>
+									</a>
+								</div>
+								<!-- Candidate #5 accordian contents -->
+								<div class="accordian-body collapse" id="fifth" style="margin-left: 10em; left: -10em; margin-right: 10em; width: 100%;">
+									<div class="accordian-inner">
+										<div class="row">
+											<hr>
+											<!-- Row 1 -->
+											<div class="span2" style="width:35%">
+												<p>New York, NY (45mi)</p>
+												<p>B.A. in Political Sciences,<br>Roma U., 88bce</p>
+												<p>M.A. in Bronze-Age, Balkan Military Tactics,<br>Roma U., 83bce.</p>
+											</div>
+											<!-- Row 2 -->
+											<div class="span2" style="width:33%">
+												<strong>Functions: </strong>
+												<p>Executive - 34.5yrs<br>Management - 18.3yrs</p>
+												
+												<strong>Sectors:</strong>
+												<p>Public - 18.3yrs<br>Cultural - 40.2yrs</p>											
+											</div>
+											<!-- Row 3 -->
+											<div class="span2" style="width:20%">
+												<strong>Lacks experience:</strong>
+												<p>Operational<br>Math-related</p>
+												
+												<p><strong>Employed: </strong> 5.3yrs</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Questions list -->
+				<div id="questions" class="span8" style="margin-top:80px; text-align:center; display:none">
+					<!-- Question #1 -->
+					<div class="well">
+						<a class="close" title="Close">x</a>
+						<h3>How would you describe yourself?</h3>
+						<div class="container" style=" width:85%; ">
+							<button id="healthy" class="btn span6" style="margin-left:0; margin-bottom:.5em" onmousedown="answered(this)">Healthy</button>
+							<button id="brainless" class="btn span6" style="margin-left:0; margin-bottom:.5em">Brainless</button>
+							<button id="reckless" class="btn span6" style="margin-left:0; margin-bottom:.5em">Reckless</button>
+							<button id="childish" class="btn span6" style="margin-left:0; margin-bottom:.5em;">Childish</button>
+						</div>
+					</div>
+					<!-- Question #2 -->
+					<div class="well">
+						<a class="close" title="Close">x</a>
+						<h3>How did you describe yourself?</h3>
+						<div class="container" style=" width:85%; ">
+							<button id="healthy" class="btn span6" style="margin-left:0; margin-bottom:.5em" onmousedown="answered(this)">Healthy</button>
+							<button id="brainless" class="btn span6" style="margin-left:0; margin-bottom:.5em">Brainless</button>
+							<button id="reckless" class="btn span6" style="margin-left:0; margin-bottom:.5em">Reckless</button>
+							<button id="childish" class="btn span6" style="margin-left:0; margin-bottom:.5em;">Childish</button>
+						</div>
+					</div>
+					<!-- Question #3 -->
+					<div class="well">
+						<a class="close" title="Close">x</a>
+						<h3>How should you describe yourself?</h3>
+						<div class="container" style=" width:85%; ">
+							<button id="healthy" class="btn span6" style="margin-left:0; margin-bottom:.5em" onmousedown="answered(this)">Healthy</button>
+							<button id="brainless" class="btn span6" style="margin-left:0; margin-bottom:.5em">Brainless</button>
+							<button id="reckless" class="btn span6" style="margin-left:0; margin-bottom:.5em">Reckless</button>
+							<button id="childish" class="btn span6" style="margin-left:0; margin-bottom:.5em;">Childish</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+
+
+
+
+
+
+
+
+<!-- Date: Jun 22 2013, old code
 /views/employers/dashboard.html.erb
 <div class="col profile-col1">
   <div class="placeimg"><%= image_tag(current_user.avatar.url(:thumb), :class => "avatar") %></div>
@@ -41,3 +486,4 @@
     <%= render :partial => "candidates/list" %> 
   </div>
 </div>
+-->

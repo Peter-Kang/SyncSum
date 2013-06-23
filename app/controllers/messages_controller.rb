@@ -21,8 +21,8 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
-    if params[:id]!="dashboard"
-    @message = Message.find(params[:id])  
+    if params[:id].downcase != "dashboard"
+    @message = Message.find(params[:id])
 	@message.update_attribute(:isRead, true)
     end
     respond_to do |format|

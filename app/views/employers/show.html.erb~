@@ -5,11 +5,12 @@
 					<div id="details">
 <%= form_for @current_user, :html => { :multipart => true, class: 'form' }, remote: true do |f| %>
 
-						<%= image_tag :avatar, :alt=>"Employer image"%>
+						<%= image_tag @current_user.avatar.url %>
 						<h3 style="margin-left:-20px;"><%="#{current_user.employer.name}"%></h3>
+						
 						<address style="margin-left:-20px; margin-right:-20px;">
-							<i>"Our mission is to own all the examples in the world and be the biggest manufacturers of world class examples."</i><br><br>
-							<strong>Example Inc. buys, sell and builds examples while keeping the investors in mind.</strong>
+							<i><%="#{current_user.employer.mission_statement}"%></i><br><br>
+							<strong><%="#{current_user.employer.description}"%></strong>
 						</address>
 						<br>
 						<address style="margin-left:-20px; margin-right:-20px;">
@@ -18,17 +19,23 @@
 					</div>
 					
 					<div id="editDetails" style="display:none;">
-						<%= image_tag "default.jpg", :alt=>"Employer image"%><br><br>
-						<input type="file" name="logo" accept="image/*">
+						<%= image_tag @current_user.avatar.url, :alt=>"Employer image"%><br><br>
+						<%= f.file_field :avatar %>
+						<!-- <input type="file" name="logo" accept="image/*"> -->
+						<br><hr>	
+	
+						<!--<input type="text" style="margin-left:-10px;" placeholder="Company Name" value="Example Name">-->
+	
+
+
+
+						<!-- <textarea class="input-xlarge" rows="4" style="margin-left:-10px; width:14.65em" placeholder="Mission Statement" >Our mission is to own all the examples in the world and be the biggest manufacturers of world class examples.</textarea>
+						<textarea class="input-xlarge" rows="4" style="margin-left:-10px; width:14.65em" placeholder="Company Description" >Example Inc. buys, sell and builds examples while keeping the investors in mind.</textarea>-->
 						<br><hr>
 
-						<input type="text" style="margin-left:-10px;" placeholder="Company Name" value="Example Name">
-						<textarea class="input-xlarge" rows="4" style="margin-left:-10px; width:14.65em" placeholder="Mission Statement" >Our mission is to own all the examples in the world and be the biggest manufacturers of world class examples.</textarea>
-						<textarea class="input-xlarge" rows="4" style="margin-left:-10px; width:14.65em" placeholder="Company Description" >Example Inc. buys, sell and builds examples while keeping the investors in mind.</textarea>
-						<br><hr>
 
 
-
+	
 	<%= f.text_field :street, :placeholder=>"Street" %>
 	<%= f.text_field :city, :placeholder=> "City" %>
 <table>
@@ -42,7 +49,7 @@
 	<%= f.submit "Save" %>
 	<button	class="btn btn-danger" style="margin-left:1em;" onmousedown="cancelEdit()">Close</button>
 <%end%>
-<%end%>
+
 <!-- , :class=>"btn btn-primary", :onclick=>"saveDetails()" -->
 
 
