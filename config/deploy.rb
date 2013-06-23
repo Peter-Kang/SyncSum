@@ -5,12 +5,12 @@ server "198.211.104.22", :web, :app, :db, primary: true
 set :application, "syfs"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-set :deploy_via, :copy
-#set :deploy_via, :remote_cache
+#set :deploy_via, :copy
+set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:SyncYour/SyncSum.git"
+set :repository, "ssh://git@github.com:SyncYour/SyncSum.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
