@@ -30,7 +30,6 @@
 		<%= e.text_field :name, :placeholder=> "Company Name"%>
 		<%= e.text_area :mission_statement, :placeholder=> "Mission Statement", :rows=>"4", :style=> "margin-left:-10px, width:14.65em"%>
 		<%= e.text_area :description, :placeholder=> "Description", :rows=>"4", :style=> "margin-left:-10px, width:14.65em"%>
-	<%end%>
 
 
 						<!-- <textarea class="input-xlarge" rows="4" style="margin-left:-10px; width:14.65em" placeholder="Mission Statement" >Our mission is to own all the examples in the world and be the biggest manufacturers of world class examples.</textarea>
@@ -52,6 +51,7 @@
 	<%= f.text_field :website, :placeholder=> "Website" %>
 	<%= f.submit "Save" %>
 	<button	class="btn btn-danger" style="margin-left:1em;" onmousedown="cancelEdit()">Close</button>
+<%end%>
 <%end%>
 
 <!-- , :class=>"btn btn-primary", :onclick=>"saveDetails()" -->
